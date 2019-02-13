@@ -1,0 +1,97 @@
+img.logotop{
+  width:25%;
+  height:100px;
+}
+header{
+  background-color:black;
+  width:100%;
+  height:50px;
+}
+ header ul{
+ float:left;
+   line-height:22px;
+}
+header ul li{
+  float:left;
+  color:white;
+  padding-left: 60px;
+  list-style: none;
+  font-size:20px;
+  line-height:;
+  
+}
+main{
+  clear:left;
+}
+.supermain{
+  width:95%;
+  margin:0 top;
+  margin-top:30px;
+}
+
+.left{
+  float:left;
+  width:65%;
+}
+.midashi{
+  width:99%;
+  font-size:23px;
+  border-left:3px solid black;
+  border-bottom:1px solid black;
+  padding-left:10px;
+}
+.nenngetsu{
+  line-height:20px;
+  padding-top:10px;
+}
+.book{
+  width:100%;
+}
+main .bun1{
+  font-size:16px;
+}
+.box1{
+  background-color: lightgrey;
+}
+.box1 img{
+  width:200px;
+  padding-top:10px;
+  padding-left:30px;
+}
+.box1 .box1_pic1{
+  display:inline-block;
+}
+.box1 .box1_pic2{
+  display:inline-block;
+}
+
+.right{
+  float:right;
+  width:35%;
+}
+
+.right ul .title{
+  border-bottom:1px dotted black;
+}
+
+.right ul{
+  text-align: left;
+}
+.right ul li{
+  list-style: none;
+}
+
+
+
+footer{
+  clear:both;
+  width:100%;
+  height:60px;
+  background-color:black;
+  text-align: center;
+  color:white;
+}
+
+h3{
+  line-height: 60px;
+}
