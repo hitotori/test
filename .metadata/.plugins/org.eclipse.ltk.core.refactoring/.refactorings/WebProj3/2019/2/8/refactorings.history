@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="コンパイル単位名 &apos;com.internousdev.webproj3.dao.InquiryDAO.java&apos; を &apos;InquiryCompleteDAO.java&apos; に変更&#x0D;&#x0A;- 元のプロジェクト: &apos;WebProj3&apos;&#x0D;&#x0A;- オリジナル要素: &apos;com.internousdev.webproj3.dao.InquiryDAO.java&apos;&#x0D;&#x0A;- 名前変更済み要素: &apos;com.internousdev.webproj3.dao.InquiryCompleteDAO.java&apos;" description="コンパイル単位名 &apos;InquiryDAO.java&apos; を変更します" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;com.internousdev.webproj3.dao{InquiryDAO.java" name="InquiryCompleteDAO.java" references="false" stamp="1550733874957" version="1.0"/>
+</session>

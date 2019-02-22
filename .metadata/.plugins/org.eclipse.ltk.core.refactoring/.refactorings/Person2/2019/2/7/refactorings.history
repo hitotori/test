@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="パッケージ名 &apos;peron2&apos; を &apos;person2&apos; に変更します&#x0D;&#x0A;- 元のプロジェクト: &apos;Person2&apos;&#x0D;&#x0A;- オリジナル要素: &apos;Person2/src/peron2&apos;&#x0D;&#x0A;- 名前変更済み要素: &apos;Person2/src/person2&apos;&#x0D;&#x0A;- リファクタリングされた要素の参照を更新&#x0D;&#x0A;- コメントおよびストリング内のテキスト出現箇所の更新" description="パッケージ名 &apos;peron2&apos; を変更します" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;peron2" name="person2" qualified="false" references="true" stamp="1550119134875" textual="false" version="1.0"/>
+</session>

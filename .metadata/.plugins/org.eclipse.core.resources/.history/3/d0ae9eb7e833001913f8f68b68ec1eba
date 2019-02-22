@@ -1,0 +1,16 @@
+set names utf8;
+set foreign_key_check=0;
+drop database if exists logindb hitotori;
+create database logindb_hitotori;
+use logindb_hitotori;
+
+create table user()id int,
+user_name varchar(255),
+password varchar(255)
+);
+
+inserrt into user values
+(1,"taro","123"),
+(2,"jiro","123"),
+(3,"hanako","123"),
+(4,"saburo","123"),
