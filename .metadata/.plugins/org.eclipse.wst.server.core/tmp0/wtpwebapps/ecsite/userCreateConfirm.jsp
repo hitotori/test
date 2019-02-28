@@ -10,6 +10,7 @@
 <meta http-equiv="imagetoolbar" content="no">
 <meta name="descrption" content="" />
 <meta name="keywords"content="" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <title>UserCreateConfirm画面</title>
 <style type="text/css">
 body{
@@ -50,6 +51,14 @@ clear:both;
 }
 
 </style>
+
+<script type="text/javascript">
+   function submitAction(url){
+	   $('form').attr('action',url);
+	   $('form').submit();
+   }
+</script>
+
 </head>
 <body>
    <div id="header">
@@ -90,12 +99,14 @@ clear:both;
                   </td>
                </tr>
                <tr>
+                  <td><input type="button" value="戻る" onclick="submitAction('UserCreateAction')"/></td>
                   <td>
                      <s:submit value="完了" />
                   </td>
                </tr>
             </s:form>
          </table>
+
       </div>
    </div>
 

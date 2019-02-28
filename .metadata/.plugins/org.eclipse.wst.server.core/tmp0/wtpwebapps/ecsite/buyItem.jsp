@@ -10,7 +10,7 @@
 <meta http-equiv="imagetoolbar" content="no">
 <meta name="descrption" content="" />
 <meta name="keywords"content="" />
-<title>buyItem画面</title>
+<title>BuyItem画面</title>
 <style type="text/css">
 body{
 margin:0;
@@ -67,8 +67,10 @@ clear:both;
                      <span>商品名</span>
                   </td>
                   <td>
-                    <s:property value="session.buyItem_name" />
+                    <s:property value="session.buyItem_name" /><br>
                   </td>
+               </tr>
+               <tr>
                   <td>
                      <span>値段</span>
                   </td>
@@ -110,7 +112,7 @@ clear:both;
         </s:form>
            <div>
               <p>前画面に戻るには<a href='<s:url action="GoHomeAction" />'>こちら</a></p>
-              <p>マイページは<a href='<S:url action="MyPageAction" />'>こちら</a></p>
+              <p>マイページは<a href='<s:url action="MyPageAction" />'>こちら</a></p>
            </div>
      </div>
  </div>

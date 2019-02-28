@@ -8,12 +8,12 @@ import com.internousdev.template.util.DBConnector;
 import com.internousdev.template.util.DateUtil;
 
 public class BuyItemCompleteDAO {
+	private DBConnector db=new DBConnector();
+	private Connection con=db.getConnection();
 	private DateUtil du=new DateUtil();
 	private String sql="INSERT INTO user_buy_item_transaction(item_transaction_id,total_price,total_count,user_master_id,pay,insert_date)VALUES(?,?,?,?,?,?)";
 
 	public void buyItemInfo(String item_transaction_id,String user_master_id,String total_price,String total_count,String pay) throws SQLException{
-		DBConnector db=new DBConnector();
-		Connection con=db.getConnection();
 		try{
 			PreparedStatement ps=con.prepareStatement(sql);
 			ps.setString(1, item_transaction_id);

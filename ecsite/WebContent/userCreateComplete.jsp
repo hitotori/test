@@ -67,7 +67,7 @@ clear:both;
       </div>
    </div>
 
-   <div id="footr">
+   <div id="footer">
        <div id="pr"></div>
    </div>
 

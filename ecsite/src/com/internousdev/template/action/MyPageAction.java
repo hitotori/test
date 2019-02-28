@@ -1,5 +1,6 @@
 package com.internousdev.template.action;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -10,40 +11,44 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class MyPageAction extends ActionSupport implements SessionAware{
 	public Map<String,Object>session;
+	private MyPageDAO mpdao=new MyPageDAO();
+	private ArrayList<MyPageDTO> mpList=new ArrayList<MyPageDTO>();
 	public String deleteFlg;
-	private String result;
+	private String message;
 	public String execute() throws SQLException{
-		MyPageDAO mpdao=new MyPageDAO();
-		MyPageDTO mpdto=new MyPageDTO();
+		if(!session.containsKey("id")){
+			return ERROR;
+		}
 
 		if(deleteFlg==null){
 			String item_transaction_id=session.get("id").toString();
 			String user_master_id=session.get("login_user_id").toString();
 
-			mpdto=mpdao.getMyPageUserInfo(item_transaction_id, user_master_id);
-			session.put("buyItem_name", mpdto.getItemName());
-			session.put("total_price", mpdto.getTotalPrice());
-			session.put("total_count", mpdto.getTotalCount());
-			session.put("total_payment",mpdto.getPayment());
-			session.put("message","");
+			mpList=mpdao.getMyPageUserInfo(item_transaction_id,user_master_id);
+//			session.put("buyItem_name", mpdto.getItemName());
+//			session.put("total_price", mpdto.getTotalPrice());
+//			session.put("total_count", mpdto.getTotalCount());
+//			session.put("total_payment",mpdto.getPayment());
+//			session.put("message","");
 		}else if(deleteFlg.equals("1")){
 			delete();
 		}
-		result=SUCCESS;
+		String result=SUCCESS;
 		return result;
 	}
 
 	public void delete() throws SQLException{
-		MyPageDAO mpdao=new MyPageDAO();
+//		MyPageDAO mpdao=new MyPageDAO();
 
 		String item_transaction_id=session.get("id").toString();
 		String user_master_id=session.get("login_user_id").toString();
 
 		int res=mpdao.buyItemHistoryDelete(item_transaction_id, user_master_id);
 		if(res>0){
-			session.put("message", "商品情報を正しく削除しました。");
+			mpList=null;
+			setMessage( "商品情報を正しく削除しました。");
 		}else if(res==0){
-			session.put("message", "商品情報の削除に失敗しました。");
+			setMessage("商品情報の削除に失敗しました。");
 		}
 	}
 
@@ -54,9 +59,24 @@ public class MyPageAction extends ActionSupport implements SessionAware{
 		this.deleteFlg=deleteFlg;
 	}
 
+	public Map<String,Object>getSession(){
+		return session;
+	}
+
 	@Override
-	public void setSession(Map<String,Object>loginSessionMap){
-		this.session=loginSessionMap;
+	public void setSession(Map<String,Object>session){
+		this.session=session;
+	}
+
+	public ArrayList<MyPageDTO> getMyPageList(){
+		return this.mpList;
+	}
+	public String getMessage(){
+		return this.message;
+	}
+
+	public void setMessage(String message){
+		this.message=message;
 	}
 
 }
