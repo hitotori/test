@@ -12,44 +12,12 @@
 <meta http-equiv="imagetoolbar" content="no">
 <meta name="descrption" content="" />
 <meta name="keywords"content="" />
+
+<link rel="stylesheet" type="text/css" href="/ecsite/css/Style.css">
+
 <title>BuyItem画面</title>
 <style type="text/css">
-body{
-margin:0;
-padding:0;
-line-height:1.6;
-latter-spacing:1px;
-font-family:Verdana,Helvetica,sans-serif;
-font-size:12px;
-color:#333;
-background:#fff;
-}
 
-table{
-text-align:center;
-margin:0 auto;
-}
-#top{
-width:780px;
-margin:30px auto;
-border:1px solid #333;
-}
-#header{
-width:100%;
-height:80px;
-background-color:black;
-}
-#main{
-width:100%;
-height:500px;
-text-align:center;
-}
-#footer{
-width:100%;
-height:80px;
-background-color:black;
-clear:both;
-}
 
 </style>
 </head>
@@ -67,7 +35,7 @@ clear:both;
 
     <div>
        <p><a href='<s:url action="UserCreateAction" />'>ひとつ前のページに戻る</a></p>
-       <p><a href='<s:url action="LoginAction" />'>Login画面に戻る</a></p>
+       <p><a href='<s:url action="HomeAction" />'>Login画面に戻る</a></p>
        <p><a href='<s:url action="GoHomeAction" />'>Home画面に戻る</a></p>
     </div>
 </div>

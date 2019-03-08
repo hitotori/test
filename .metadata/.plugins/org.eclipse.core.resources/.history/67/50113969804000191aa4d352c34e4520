@@ -1,0 +1,60 @@
+package com.internousdev.template.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import com.internousdev.template.dto.ProductEntryDTO;
+import com.internousdev.template.util.DBConnector;
+
+public class ItemListDAO {
+	private DBConnector db=new DBConnector();
+	private Connection con=db.getConnection();
+	public ArrayList<ProductEntryDTO> getProductInfo(String item_transaction_id,String user_master_id)throws SQLException{
+		ArrayList<ProductEntryDTO> pList=new ArrayList<ProductEntryDTO>();
+		String sql="SELECT ubit.id,iit.item_name,ubit.item_price,ubit.item_count,ubit.insert_date FROM item_info_transaction ";
+		try{
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setString(1,item_transaction_id);
+			ps.setString(2,user_master_id);
+			ResultSet rs=ps.executeQuery();
+
+			while(rs.next()){
+				ProductEntryDTO dto=new ProductEntryDTO();
+				dto.setId(rs.getInt("id"));
+				dto.setItem_name(rs.getString("item_name"));
+				dto.setItem_price(rs.getInt("item_price"));
+				dto.setItem_stock(rs.getInt("item_count"));
+				dto.setInsert_date(rs.getString("insert_date"));
+				pList.add(dto);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			con.close();
+		}
+		return pList;
+	}
+
+//	public int buyItemDelete(String item_transaction_id,String user_master_id)throws SQLException{
+//
+//		String sql="DELETE FROM item_info_transaction WHERE item_transaction_id=? AND user_master_id=?";
+//		PreparedStatement ps;
+//		int result=0;
+//		try{
+//			ps=con.prepareStatement(sql);
+//			ps.setString(1, item_transaction_id);
+//			ps.setString(2, user_master_id);
+//
+//			result=ps.executeUpdate();
+//		}catch(SQLException e){
+//			e.printStackTrace();
+//		}finally{
+//			con.close();
+//		}
+//		return result;
+//	}
+
+}

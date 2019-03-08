@@ -1,0 +1,70 @@
+package com.internousdev.template.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.internousdev.template.dto.ProductEntryDTO;
+import com.internousdev.template.util.DBConnector;
+
+public class ProductEntryDAO {
+	List<ProductEntryDTO> ProductEntryDTOList=new ArrayList<ProductEntryDTO>();
+
+	public List<ProductEntryDTO>select(){
+		DBConnector db=new DBConnector();
+		Connection con=db.getConnection();
+
+		String sql="select * from item_info_transaction";
+		try{
+			PreparedStatement ps=con.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+
+			while(rs.next()){
+				ProductEntryDTO dto=new ProductEntryDTO();
+				dto.setItemName(rs.getString("item_name"));
+				dto.setItemPrice(rs.getInt("item_price"));
+				dto.setItemStock(rs.getInt("item_stock"));
+				ProductEntryDTOList.add(dto);
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		try{
+			con.close();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return ProductEntryDTOList;
+	}
+
+	public int insert(String item_name,int item_price,int item_stock){
+		int ret=0;
+		DBConnector db=new DBConnector();
+		Connection con=db.getConnection();
+
+		String sql="insert into item_info_transaction value(?,?,?)";
+		try{
+			PreparedStatement ps=con.prepareStatement(sql);
+			ps.setString(1, item_name);
+			ps.setInt(2, item_price);
+			ps.setInt(3, item_stock);
+			int i=ps.executeUpdate();
+			if(i>0){
+				System.out.println(i+"件登録されました");
+				ret=i;
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		try{
+			con.close();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		return ret;
+		}
+}
+

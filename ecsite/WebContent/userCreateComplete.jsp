@@ -10,42 +10,12 @@
 <meta http-equiv="imagetoolbar" content="no">
 <meta name="descrption" content="" />
 <meta name="keywords"content="" />
+
+<link rel="stylesheet" type="text/css" href="/ecsite/css/Style.css">
+
 <title>UserCreateComplete画面</title>
 <style type="text/css">
-body{
-margin:o;
-padding:0;
-line-height:1.6;
-letter-spacing:1px;
-font-family:Verdana,Helvetica,sans-serif;
-font-size:12px;
-background:#fff;
-}
-table{
-text-align:center;
-margin:0 auto;
-}
-#top{
-width:780px;
-margin:30px auto;
-border:1px solid #333;
-}
-#header{
-width:100%;
-height:80px;
-background-color:black;
-}
-#main{
-width:100%;
-height:500px;
-text-align:center;
-}
-#footer{
-width:100%;
-height:80px;
-background-color:black;
-clear:both;
-}
+
 
 </style>
 

@@ -14,6 +14,7 @@ public class HomeAction extends ActionSupport implements SessionAware{
 		String result="login";
 		if(session.containsKey("id")){
 			BuyItemDAO bidao=new BuyItemDAO();
+//			ArrayList<BuyItemDTO> bidto=bidao.getBuyItemInfo();
 			BuyItemDTO bidto=bidao.getBuyItemInfo();
 			session.put("id",bidto.getId());
 			session.put("buyItem_name",bidto.getItemName());

@@ -1,5 +1,7 @@
 package com.internousdev.template.action;
 
+//ArrayListで読み取らせる準備？
+//import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -19,6 +21,10 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	private LoginDTO dto=new LoginDTO();
 	private BuyItemDAO bidao=new BuyItemDAO();
 
+//	商品リストを読み取らせるための１段階目
+//	private ArrayList<BuyItemDTO> itemList=new ArrayList<BuyItemDTO>();
+
+
 	public String execute(){
 		String result =ERROR;
 		dto=dao.getLoginUserInfo(loginUserId, loginPassword);
@@ -26,13 +32,21 @@ public class LoginAction extends ActionSupport implements SessionAware{
 		if(((LoginDTO)session.get("loginUser")).getLoginFlg()){
 			result=SUCCESS;
 			BuyItemDTO bidto=bidao.getBuyItemInfo();
-
 			session.put("login_user_id", dto.getLoginId());
 			session.put("id",bidto.getId());
 			session.put("buyItem_name",bidto.getItemName());
 			session.put("buyItem_price", bidto.getItemPrice());
+
+//			ここにリスト[ItemList]を作り[buyItem.jsp]にて複数の入力情報を読み込ませる？
+//			itemList=bidao.getBuyItemInfo();
+//			session.put("login_user_id", dto.getLoginId());
+
+
+
 			return result;
 		}
+
+
 		return result;
 	}
 
@@ -55,5 +69,13 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public void setSession(Map<String,Object>session ){
 		this.session = session;
 	}
+
+
+//	public ArrayList<BuyItemDTO>getItemList(){
+//		return itemList;
+//	}
+//	public void setItemList(ArrayList<BuyItemDTO>itemList){
+//		this.itemList=itemList;
+//	}
 
 }

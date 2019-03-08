@@ -10,53 +10,11 @@
 <meta http-equiv="imagetoolbar" content="no">
 <meta name="descrption" content="" />
 <meta name="keywords"content="" />
+<link rel="stylesheet" type="text/css" href="/ecsite/css/Style.css">
 <title>Home画面</title>
 
 <style type="text/css">
-body{
-margin:0;
-padding:0;
-line-height:1.6;
-letter-spacing:1px;
-font-family:Vardana,Helvetica,sans-serif;
-font-size:12px;
-color:#333;
-background:#fff;
-}
 
-table{
-text-align:center;
-margin:0 auto;
-}
-
-#top{
-width:780px;
-margin:30px auto;
-border:1px solid #333;
-}
-
-#header{
-width:100%;
-height:80px;
-background-color:black;
-}
-
-#main{
-width:100%;
-height:500px;
-text-align:center;
-}
-
-#footer{
-width:100%;
-height:80px;
-background-color:black;
-clear:both;
-}
-#text-center{
-display:inline-block;
-text-align:center;
-}
 
 </style>
 </head>
@@ -72,6 +30,9 @@ text-align:center;
   <div id="text-center">
    <s:form action="HomeAction">
     <s:submit value="商品購入"/>
+   </s:form>
+   <s:form action="ManagerHomeAction">
+   <s:submit value="管理者画面" />
    </s:form>
    <s:if test="#session.id !=null">
     <p>ログアウトする場合は<a href='<s:url action="LogoutAction" />'>こちら</a></p>

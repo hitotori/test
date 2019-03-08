@@ -1,0 +1,58 @@
+package com.internousdev.template.action;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
+import com.internousdev.template.dao.ProductEntryDAO;
+import com.internousdev.template.dto.ProductEntryDTO;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class ProductEntryCompleteAction extends ActionSupport implements SessionAware{
+	private String itemName;
+	private int itemPrice;
+	private int itemStock;
+
+	List<ProductEntryDTO> ProductEntryList=new ArrayList<ProductEntryDTO>();
+	private Map<String,Object>session;
+
+	public String execute(){
+		String ret=ERROR;
+		ProductEntryDAO dao=new ProductEntryDAO();
+		int count=dao.insert(itemName, itemPrice, itemStock);
+		if(count>0){
+			ProductEntryList=dao.select();
+			session.put("ProductEntryDTOList",ProductEntryList);
+			ret=SUCCESS;
+		}
+		return ret;
+	}
+	public String getItemName() {
+	return itemName;
+	}
+	public void setItemName(String itemName) {
+	this.itemName = itemName;
+	}
+	public int getItemPrice() {
+	return itemPrice;
+	}
+	public void setItemPrice(int itemPrice) {
+	this.itemPrice = itemPrice;
+	}
+	public int getItemStock() {
+	return itemStock;
+	}
+	public void setItemStock(int itemStock) {
+	this.itemStock = itemStock;
+	}
+
+	public Map<String,Object>getSession(){
+		return session;
+	}
+	public void setSession(Map<String,Object>session){
+		this.session=session;
+	}
+
+}
