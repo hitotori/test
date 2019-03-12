@@ -62,8 +62,8 @@ height:180px;
      <div id="top">
          <h1>出品一覧</h1>
      </div>
-
-         <s:if test="pList.size == 0">
+     <div>
+         <s:if test="pList == null">
          <h2>出品情報はありません。</h2>
          </s:if>
          <s:else>
@@ -71,6 +71,7 @@ height:180px;
 <%--             <s:form action="ItemListConfirmAction"> --%>
          <table border="1">
             <tr>
+               <th>ID</th>
                <th>商品名</th>
                <th>値段</th>
                <th>出品個数</th>
@@ -80,9 +81,9 @@ height:180px;
             <s:iterator value="pList">
                <tr>
                   <td><s:property value="id" /></td>
-                  <td><s:property value="item_name" /></td>
-                  <td><s:property value="item_price" /><span>円</span></td>
-                  <td><s:property value="item_stock" /><span>個</span></td>
+                  <td><s:property value="itemName" /></td>
+                  <td><s:property value="itemPrice" /><span>円</span></td>
+                  <td><s:property value="itemStock" /><span>個</span></td>
                   <td><s:property value="insert_date" /></td>
                   <td><s:property value="update_date" /></td>
                </tr>
@@ -91,14 +92,14 @@ height:180px;
 <%--                <s:submit value="削除" class="sub" /> --%>
 <%--             </s:form> --%>
          </s:else>
-<%--          <s:if test="message !=null"> --%>
-<%--             <h3><s:property value="message" /></h3> --%>
-<%--          </s:if> --%>
+         <s:if test="message !=null">
+            <h3><s:property value="message" /></h3>
+         </s:if>
          <div id="text-right">
-            <p>管理者画面へ戻る場合は<a href='<s:url action="ManagerHomeAction" />'>こちら</a></p>
+            <p>管理者画面へ戻る場合は<a href='manager.jsp'>こちら</a></p>
             <p>ログアウトする場合は<a href='<s:url action="LogoutAction" />'>こちら</a></p>
          </div>
-
+      </div>
  </div>
 
  <div id="footer">

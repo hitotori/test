@@ -27,6 +27,16 @@ text-align:center;
 margin:0 auto;
 width:100%;
 /* border: groove 2px black; */
+/* table-layout:fixed; */
+table-layout:auto;
+}
+th{
+background-color:red;
+color:white;
+}
+td{
+back-ground-color:lightpink;
+color:black;
 }
 #top{
 width:90%;

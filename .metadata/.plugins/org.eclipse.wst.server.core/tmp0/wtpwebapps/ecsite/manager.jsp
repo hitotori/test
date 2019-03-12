@@ -156,7 +156,7 @@ padding-top:30px;
                  <s:submit value="新規登録" class="sub" />
              </div>
              </s:form>
-           <s:form action="ProductEntryAction">
+           <s:form action="UserListAction">
              <div class=b>
                  <s:submit value="一覧表示" class="sub" />
              </div>

@@ -1,7 +1,5 @@
 package com.internousdev.template.action;
 
-//ArrayListで読み取らせる準備？
-//import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -16,18 +14,17 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 	private String loginUserId;
 	private String loginPassword;
+//	private String adminFlg;
 	public Map<String,Object>session;
 	private LoginDAO dao=new LoginDAO();
 	private LoginDTO dto=new LoginDTO();
 	private BuyItemDAO bidao=new BuyItemDAO();
 
-//	商品リストを読み取らせるための１段階目
-//	private ArrayList<BuyItemDTO> itemList=new ArrayList<BuyItemDTO>();
-
 
 	public String execute(){
 		String result =ERROR;
 		dto=dao.getLoginUserInfo(loginUserId, loginPassword);
+//		,adminFlg
 		session.put("loginUser",dto);
 		if(((LoginDTO)session.get("loginUser")).getLoginFlg()){
 			result=SUCCESS;
@@ -37,11 +34,11 @@ public class LoginAction extends ActionSupport implements SessionAware{
 			session.put("buyItem_name",bidto.getItemName());
 			session.put("buyItem_price", bidto.getItemPrice());
 
-//			ここにリスト[ItemList]を作り[buyItem.jsp]にて複数の入力情報を読み込ませる？
-//			itemList=bidao.getBuyItemInfo();
-//			session.put("login_user_id", dto.getLoginId());
 
-
+//			if(!(adminFlg==NULL)){
+//				result="manager";
+//				return result;
+//			}
 
 			return result;
 		}
@@ -69,7 +66,13 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public void setSession(Map<String,Object>session ){
 		this.session = session;
 	}
-
+//	追記
+//	public String getAdminFlg(){
+//		return adminFlg;
+//	}
+//	public void setAdminFlg(String adminFlg){
+//		this.adminFlg=adminFlg;
+//	}
 
 //	public ArrayList<BuyItemDTO>getItemList(){
 //		return itemList;

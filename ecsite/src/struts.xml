@@ -23,8 +23,10 @@
 </action>
 
 <action name="ManagerAction" class="com.internousdev.template.action.ManagerAction" method="execute">
-  <result name="success">manager.jsp</result>
+  <result name="success">myPage.jsp</result>
+<!--   ↑ここを管理者専用にした場合に通常のページbuyItem.jspかmyPageに飛ばす。-->
   <result name="error">managerLoginError.jsp</result>
+  <result name="manager">manager.jsp</result>
 </action>
 
   <action name="LoginAction" class="com.internousdev.template.action.LoginAction" method="execute">
@@ -108,6 +110,10 @@
 
 <action name="ManagerCreateCompleteAction" class="com.internousdev.template.action.ManagerCreateCompleteAction" method="execute">
   <result name="success">managerCreateComplete.jsp</result>
+</action>
+
+<action name="UserListAction" class="com.internousdev.template.action.UserListAction" method="execute">
+  <result name="success">userList.jsp</result>
 </action>
 
 

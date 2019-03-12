@@ -7,6 +7,9 @@ public class LoginDTO {
 	private String userName;
 	private boolean loginFlg = false;
 
+//	追記
+	private String adminFlg;
+
 	public String getLoginId(){
 		return loginId;
 	}
@@ -30,6 +33,15 @@ public class LoginDTO {
 	}
 	public void setLoginFlg(Boolean loginFlg ){
 		this.loginFlg = loginFlg;
+	}
+
+//	追記
+	public String getAdminFlg(){
+		return adminFlg;
+	}
+
+	public void setAdminFlg(String adminFlg){
+		this.adminFlg=adminFlg;
 	}
 
 }

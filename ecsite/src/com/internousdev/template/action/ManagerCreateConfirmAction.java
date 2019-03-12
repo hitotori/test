@@ -13,17 +13,26 @@ public class ManagerCreateConfirmAction extends ActionSupport implements Session
 	private String userName;
 	public Map<String,Object>session;
 	private String errorMessage;
+	private String authority;
 
 	public String execute(){
 		String result =SUCCESS;
+
+
+
 		if(!(loginUserId.equals(""))&&!(loginPassword.equals(""))&&!(userName.equals(""))){
 			session.put("loginUserId", loginUserId);
 			session.put("loginPassword", loginPassword);
 			session.put("userName", userName);
+			if(authority!= null){
+				session.put("admin_Flg", authority);
+			}
 		}else{
 			setErrorMessage("未入力の項目があります。");
 			result=ERROR;
 		}
+
+
 		return result;
 	}
 
@@ -58,6 +67,14 @@ public class ManagerCreateConfirmAction extends ActionSupport implements Session
 	}
 	public void setErrorMessage(String errorMessage){
 		this.errorMessage=errorMessage;
+	}
+
+	public String getAuthority() {
+		return authority;
+	}
+
+	public void setAuthority(String authority) {
+		this.authority = authority;
 	}
 
 }

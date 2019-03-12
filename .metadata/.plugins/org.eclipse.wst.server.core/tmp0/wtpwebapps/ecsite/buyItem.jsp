@@ -27,13 +27,10 @@ list-style-type:none;
 /* margin-left:30px; */
 /* margin-light:30px; */
 margin-top:5px;
-background-color:black;
 color:red;
 }
 
-td{
-background-color:darkblack;
-}
+
 
 td.t1{
 border:solid 1px gray;
@@ -116,6 +113,7 @@ color:red;
            <div>
               <p>前画面に戻るには<a href='<s:url action="GoHomeAction" />'>こちら</a></p>
               <p>マイページは<a href='<s:url action="MyPageAction" />'>こちら</a></p>
+              <p>ログアウトは<a href='<s:url action="LogoutAction" />'>こちら</a></p>
            </div>
 
  </div>

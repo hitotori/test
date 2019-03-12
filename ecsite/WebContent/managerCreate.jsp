@@ -59,6 +59,14 @@ text-align:center;
                      <input type="text" name="userName" value="" />
                   </td>
                </tr>
+               <tr>
+                  <td>
+                   <label>管理者権限を持たせる</label>
+                  </td>
+                  <td>
+                    <input type="checkbox" name="authority"value="1" />
+                  </td>
+               </tr>
 
                <s:submit value="登録" />
             </s:form>

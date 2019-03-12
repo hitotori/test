@@ -1,0 +1,47 @@
+package com.internousdev.template.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import com.internousdev.template.dto.UserInfoDTO;
+import com.internousdev.template.util.DBConnector;
+
+public class UserListDAO {
+	private DBConnector db=new DBConnector();
+	private Connection con=db.getConnection();
+	public ArrayList<UserInfoDTO> getUserInfo()throws SQLException{
+//	public List<ItemInfoDTO> getItemList() throws SQLException{
+//		List<ItemInfoDTO> itemInfoDTOList=new ArrayList<ItemInfoDTO>();
+		ArrayList<UserInfoDTO> uList=new ArrayList<UserInfoDTO>();
+		String sql="SELECT *FROM login_user_transaction ORDER BY id";
+
+//		System.out.print("item_name");
+		try{
+			PreparedStatement ps=con.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+
+			while(rs.next()){
+				UserInfoDTO dto=new UserInfoDTO();
+//				dto.setId(rs.getInt("id"));
+				dto.setId(rs.getString("id"));
+				dto.setLoginId(rs.getString("login_id"));
+//				dto.setItem_price(rs.getInt("item_price"));
+				dto.setLoginPass(rs.getString("login_pass"));
+//				dto.setItem_stock(rs.getInt("item_stock"));
+				dto.setUserName(rs.getString("user_name"));
+				dto.setInsert_date(rs.getString("insert_date"));
+				dto.setUpdated_date(rs.getString("updated_date"));
+				uList.add(dto);
+
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			con.close();
+		}
+		return uList;
+	}
+}
