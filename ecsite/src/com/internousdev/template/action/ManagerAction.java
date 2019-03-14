@@ -1,5 +1,7 @@
 package com.internousdev.template.action;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -20,7 +22,7 @@ public class ManagerAction extends ActionSupport implements SessionAware{
 	private LoginDTO dto=new LoginDTO();
 	private BuyItemDAO bidao=new BuyItemDAO();
 
-	public String execute(){
+	public String execute() throws SQLException{
 		String result =ERROR;
 		dto=dao.getManagerUserInfo(loginUserId, loginPassword);
 		adminFlg=dto.getAdminFlg();
@@ -28,11 +30,14 @@ public class ManagerAction extends ActionSupport implements SessionAware{
 		session.put("loginUser",dto);
 		if(((LoginDTO)session.get("loginUser")).getLoginFlg()){
 			result=SUCCESS;
-			BuyItemDTO bidto=bidao.getBuyItemInfo();
+
+			ArrayList<BuyItemDTO> itemList=bidao.getBuyItemInfo();
+			BuyItemDTO bidto=new BuyItemDTO();
 			session.put("login_user_id", dto.getLoginId());
 			session.put("id",bidto.getId());
 			session.put("buyItem_name",bidto.getItemName());
 			session.put("buyItem_price", bidto.getItemPrice());
+			itemList.add(bidto);
 			if(adminFlg !=null){
 			result="manager";
 			return result;

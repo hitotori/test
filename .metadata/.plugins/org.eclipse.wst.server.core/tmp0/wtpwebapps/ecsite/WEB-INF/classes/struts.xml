@@ -88,6 +88,7 @@
 
   <action name="MyPageAction" class="com.internousdev.template.action.MyPageAction" method="execute">
    <result name="success">myPage.jsp</result>
+   <result name="error">myPage.jsp</result>
   </action>
 
   <action name="LogoutAction" class="com.internousdev.template.action.LogoutAction" method="execute">

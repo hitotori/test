@@ -31,7 +31,7 @@ text-align:center;
         <p>商品登録完了が完了しました。</p>
      </div>
 
-         <a href='<s:url action="ManagerHomeAction" />'>管理者画面</a><br>
+         <a href='manager.jsp'>管理者画面</a><br>
          <a href='<s:url action="LogoutAction" />'>ログアウト</a>
  </div>
 

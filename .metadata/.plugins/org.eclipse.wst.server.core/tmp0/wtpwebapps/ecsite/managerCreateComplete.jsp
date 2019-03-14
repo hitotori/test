@@ -34,7 +34,7 @@ text-align:center;
       <div>
          <h2>ユーザーの登録が完了致しました</h2>
          <div>
-          <a href='<s:url action="ManagerAction" />'>管理者画面へ</a>
+          <a href='manager.jsp'>管理者画面へ</a>
          </div>
       </div>
    </div>

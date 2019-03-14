@@ -1,5 +1,7 @@
 package com.internousdev.template.action;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -18,21 +20,27 @@ public class LoginAction extends ActionSupport implements SessionAware{
 	public Map<String,Object>session;
 	private LoginDAO dao=new LoginDAO();
 	private LoginDTO dto=new LoginDTO();
-	private BuyItemDAO bidao=new BuyItemDAO();
+	private ArrayList<BuyItemDTO> itemList=new ArrayList<BuyItemDTO>();
 
 
-	public String execute(){
+
+	public String execute() throws SQLException{
 		String result =ERROR;
 		dto=dao.getLoginUserInfo(loginUserId, loginPassword);
 //		,adminFlg
 		session.put("loginUser",dto);
-		if(((LoginDTO)session.get("loginUser")).getLoginFlg()){
+		while(((LoginDTO)session.get("loginUser")).getLoginFlg()){
+			BuyItemDAO bidao=new BuyItemDAO();
+			itemList=bidao.getBuyItemInfo();
+//			BuyItemDTO bidto=bidao.getBuyItemInfo();
+//			BuyItemDTO bidto=new BuyItemDTO();
+//			session.put("login_user_id", dto.getLoginId());
+//			session.put("id",bidto.getId());
+//			session.put("buyItem_name",bidto.getItemName());
+//			session.put("buyItem_price", bidto.getItemPrice());
+//			itemList.add(bidto);
+			session.put("itemList",itemList);
 			result=SUCCESS;
-			BuyItemDTO bidto=bidao.getBuyItemInfo();
-			session.put("login_user_id", dto.getLoginId());
-			session.put("id",bidto.getId());
-			session.put("buyItem_name",bidto.getItemName());
-			session.put("buyItem_price", bidto.getItemPrice());
 
 
 //			if(!(adminFlg==NULL)){
@@ -45,6 +53,14 @@ public class LoginAction extends ActionSupport implements SessionAware{
 
 
 		return result;
+	}
+
+	public ArrayList<BuyItemDTO> getItemList() {
+		return itemList;
+	}
+
+	public void setItemList(ArrayList<BuyItemDTO> itemList) {
+		this.itemList = itemList;
 	}
 
 	public String getLoginUserId(){

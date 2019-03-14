@@ -36,35 +36,42 @@
       </div>
       <div>
          <s:form>
+         <s:iterator value="selectList">
                <tr>
                   <td>商品名</td>
-                  <td><s:property value="session.buyItem_name" /></td>
+                  <td><s:property value="itemName" /></td>
                </tr>
                <tr>
                   <td>値段</td>
                   <td>
-                     <s:property value="session.buyItem_price" />
+                     <s:property value="itemPrice" />
                         <span>円</span>
                   </td>
                </tr>
                <tr>
                   <td>購入個数</td>
                   <td>
-                     <s:property value="session.count" />
+                     <s:property value="count" />
                         <span>個</span>
                   </td>
                </tr>
-               <tr>
-                  <td>支払い方法</td>
-                  <td><s:property value="session.pay" /></td>
-               </tr>
+<!--                <tr> -->
+<!--                   <td>支払い方法</td> -->
+<%--                   <td><s:property value="pay" /></td> --%>
+<!--                </tr> -->
                <tr>
                   <td><br></td>
+               </tr>
+          </s:iterator>
+               <tr>
+                  <td>支払い方法</td>
+                  <td><s:property value="pay" /></td>
                </tr>
                <tr>
                   <td><input type="button" value="戻る" onclick="submitAction('HomeAction')"/></td>
                   <td><input type="button" value="完了" onclick="submitAction('BuyItemConfirmAction')" /></td>
                </tr>
+
             </s:form>
             <div>
              <p>前画面に戻るには<a href='<s:url action="GoHomeAction" />'>こちら</a></p>

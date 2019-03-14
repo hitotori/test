@@ -92,6 +92,7 @@ color:black;
 							<th>ユーザー名</th>
 							<th>登録日</th>
 							<th>更新日</th>
+							<th>管理者権限</th>
 						</tr>
 						<s:iterator value="userInfoDTOList">
 							<tr>
@@ -101,6 +102,7 @@ color:black;
 								<td><s:property value="userName" /></td>
 								<td><s:property value="insert_date" /></td>
 								<td><s:property value="update_date" /></td>
+								<td><s:property value="adminFlg"/></td>
 							</tr>
 						</s:iterator>
 					</table>

@@ -64,7 +64,7 @@ text-align:center;
                    <label>管理者権限を持たせる</label>
                   </td>
                   <td>
-                    <input type="checkbox" name="authority"value="1" />
+                    <input type="checkbox" name="authority"value="〇" />
                   </td>
                </tr>
 

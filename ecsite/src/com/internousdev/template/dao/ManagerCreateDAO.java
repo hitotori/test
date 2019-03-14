@@ -32,9 +32,9 @@ public class ManagerCreateDAO {
 		}
 	}
 
-	private String admin_Flg() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}
+//	private String admin_Flg() {
+//		// TODO 自動生成されたメソッド・スタブ
+//		return null;
+//	}
 
 }
