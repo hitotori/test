@@ -213,6 +213,7 @@ margin-top:10px;
  <div id="footer">
     <div id="pr">
                <div class="foot">
+<%--                <input type="submit" value="戻る" onclick="return confirm('ログイン情報がリセットされます。<br>よろしいですか？');" /> --%>
               <a href='<s:url action="GoHomeAction" />'>前画面に戻る</a>
               <a href='<s:url action="MyPageAction" />'>マイページ</a>
               <a href='<s:url action="LogoutAction" />'>ログアウト</a>
