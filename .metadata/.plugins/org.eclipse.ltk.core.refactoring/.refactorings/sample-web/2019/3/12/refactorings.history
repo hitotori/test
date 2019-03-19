@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;sampleweb.sql&apos; to &apos;testgame/src/testgame.action&apos;&#x0D;&#x0A;- 元のプロジェクト: &apos;sample-web&apos;&#x0D;&#x0A;- 宛先要素: &apos;testgame/src/testgame.action&apos;&#x0D;&#x0A;- オリジナル要素: &apos;sampleweb.sql&apos;&#x0D;&#x0A;- リファクタリングされた要素の参照を更新" description="ファイルを移動する" destination="=testgame/src&lt;testgame.action" element1="sql/sampleweb.sql" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1552976285723" units="0" version="1.0"/>
+</session>

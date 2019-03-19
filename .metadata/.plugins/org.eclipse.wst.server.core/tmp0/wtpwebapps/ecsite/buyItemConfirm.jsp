@@ -138,18 +138,22 @@ height:20px;
           <tr>
           <td class=t2 colspan="3"></td>
           </tr>
-               <tr>
-<!--                   <td class=drow rowspan="2"></td> -->
-                  <td class=t3 colspan="3">支払い方法</td>
-<!--                   <td class=drow rowspan="2"></td> -->
-               </tr>
-               <tr>
-
-                  <td class=t1 colspan="3"><s:property value="payment" /><br></td>
-
-               </tr>
           </tfoot>
-               </table>
+          </table>
+             <table class="waku2">
+                <tr>
+                   <td class=t2>
+                     <span>支払い方法</span>
+                  </td>
+
+                </tr>
+                <tr>
+                  <td class=t2>
+                     <input type="radio" name="pay" value="1" checked="checked">現金支払い
+                     <input type="radio" name="pay" value="2">クレジットカード
+                  </td>
+                </tr>
+            </table>
                   <input type="button" value="戻る" onclick="submitAction('HomeAction')"/>
                   <input type="button" value="完了" onclick="submitAction('BuyItemConfirmAction')" />
 

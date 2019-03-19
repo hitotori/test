@@ -90,12 +90,17 @@ margin-bottom:0px;
 padding-top:20px;
 margin-top:10px;
 }
-
+.search{
+margin-top:20px;
+}
 </style>
 </head>
 <body>
  <div id="header">
-    <div id="pr"></div>
+    <s:form action="SearchAction">
+       <input type="text" class="search" value=""  />
+       <input type="submit" name="searching" class="search" value="検索"  />
+    </s:form>
  </div>
  <div id="main">
      <div id="top">
@@ -185,20 +190,7 @@ margin-top:10px;
                 </tr>
 
          </table>
-         <table class="waku2">
-                <tr>
-                   <td class=t2>
-                     <span>支払い方法</span>
-                  </td>
 
-                </tr>
-                <tr>
-                  <td class=t2>
-                     <input type="radio" name="pay" value="1" checked="checked">現金支払い
-                     <input type="radio" name="pay" value="2">クレジットカード
-                  </td>
-                </tr>
-         </table>
 <!--          <tr> -->
 <!--                <td> -->
                   <s:submit value="購入" />
