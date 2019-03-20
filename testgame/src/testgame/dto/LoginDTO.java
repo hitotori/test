@@ -5,8 +5,16 @@ public class LoginDTO {
 	private String loginPassword;
 	private String userName;
 	private boolean loginFlg = false;
+	private String characterName;
 
-//	追記
+public String getCharacterName() {
+		return characterName;
+	}
+	public void setCharacterName(String characterName) {
+		this.characterName = characterName;
+	}
+
+	//	追記
 	private String adminFlg;
 
 	public String getLoginId(){

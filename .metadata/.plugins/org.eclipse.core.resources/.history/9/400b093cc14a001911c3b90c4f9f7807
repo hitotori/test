@@ -1,0 +1,53 @@
+set names utf8;
+set foreign_key_checks=0;
+drop database if exists testgame;
+
+create database if not exists testgame;
+use testgame;
+
+drop table if exists login_user_transaction;
+
+create table login_user_transaction(
+id int not null primary key auto_increment,
+login_id varchar(16)unique,
+login_pass varchar(16),
+user_name varchar(50),
+insert_date datetime,
+updated_date datetime,
+admin_flg varchar(1)
+);
+
+drop table if exists item_info_transaction;
+
+create table maincharacter_transaction(
+id int not null primary key auto_increment,
+character_name varchar(30),
+character_level int,
+character_hp int,
+character_attack int,
+character_defense int,
+character_experiencepoint int,
+insert_date datetime,
+update_date datetime
+);
+
+drop table if exists weapon_transaction;
+
+create table weapon_transaction(
+id int not null primary key auto_increment,
+item_name varchar(16),
+item_price int,
+item_attack int,
+item_defense int,
+item_text varchar(30),
+insert_date datetime,
+delete_date datetime
+);
+
+INSERT INTO maincharacter_transaction(character_name,character_hp,character_attack,character_defense,character_experiencepoint)VALUES("デバッガー",5,100,50,50,0);
+
+INSERT INTO login_user_transaction(login_id,login_pass,user_name,admin_flg)VALUES("1","q","debagger","0");
+INSERT INTO login_user_transaction(login_id,login_pass,user_name,admin_flg)VALUES("a","a","manager","〇");
+INSERT INTO weapon_transaction(item_name,item_price,item_attack,item_defense,item_text)VALUES("とがった棒切れ",50,5,0,"少しとがった棒切れ相手に突き刺すと地味に痛い");
+INSERT INTO weapon_transaction(item_name,item_price,item_attack,item_defense,item_text)VALUES("鉄の剣",200,20,0,"立派な剣、銃刀法に違反しないよう刃はつぶしてある。");
+INSERT INTO weapon_transaction(item_name,item_price,item_attack,item_defense,item_text)VALUES("△トの剣",50000,200,30,"雷を操れるようになる。今となっては皆電気使ってるんだよなあ");

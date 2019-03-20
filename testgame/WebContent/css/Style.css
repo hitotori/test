@@ -1,1 +1,7 @@
 @CHARSET "UTF-8";
+
+#header{
+	background: -webkit-linear-gradient(top, gray, black);
+	width:100%;
+	height:50px;
+}

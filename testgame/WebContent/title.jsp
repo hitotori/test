@@ -12,7 +12,7 @@
 <meta name="keywords"content="" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="/testgame/css/Style.css">
+<link rel="stylesheet" type="text/css" href="../css/Style.css">
 <link rel="img" type="image/png" href="/testgame/img">
 <title>title</title>
 <style type="text/css">
@@ -108,13 +108,15 @@ text-align:center;
    </div>
    <ul class="menu">
       <li class=m1>
-         <input type="button"  class="start" value="スタート" onclick="submitAction('TitleAction')" />
+       <s:form action="TitleAction">
+         <input type="submit" class="start" value="スタート" />
+         </s:form>
       </li>
       <li class=m1>
          <input type="button"  class="start" value="称号（実装されていません）" onclick="submitAction('')" />
       </li>
       <li class=m1>
-         <input type="button"  class="start" value="再度タイトル表示" onclick="submitAction('LogoutAction')" />
+         <input type="submit"  class="start" value="再度タイトル表示" onclick="submitAction('LogoutAction')" />
       </li>
    </ul>
 

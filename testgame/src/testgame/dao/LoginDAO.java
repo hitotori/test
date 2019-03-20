@@ -8,41 +8,33 @@ import testgame.dto.LoginDTO;
 import testgame.util.DBConnector;
 
 public class LoginDAO {
-		private DBConnector db=new DBConnector();
-		private Connection con=db.getConnection();
-		private LoginDTO dto=new LoginDTO();
-//		,String adminFlg
-		public LoginDTO getLoginUserInfo(String loginUserId,String loginPassword){
-		String sql="SELECT * FROM login_user_transaction where login_id=? AND login_pass=?";
+	private DBConnector db = new DBConnector();
+	private Connection con = db.getConnection();
+	private LoginDTO dto = new LoginDTO();
 
-		try{
-			PreparedStatement ps=con.prepareStatement(sql);
-			ps.setString(1, loginUserId);
+	public LoginDTO getLoginUserInfo(String loginId, String loginPassword, String characterName) {
+		String sql = "SELECT * FROM user_transaction where login_id=? AND login_pass=? AND character_name=?";
+
+		try {
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, loginId);
 			ps.setString(2, loginPassword);
-//			追記
+			ps.setString(3, characterName);
 
-			ResultSet rs=ps.executeQuery();
-			if(rs.next()){
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
 				dto.setLoginId(rs.getString("login_id"));
 				dto.setLoginPassword(rs.getString("login_pass"));
 				dto.setUserName(rs.getString("user_name"));
-//				追記
-//				dto.setAdminFlg(rs.getString("admin_Flg"));
-				if(!(rs.getString("login_id").equals(null))){
-//					追記
-//					if(rs.getString("admin_Flg").equals(null)){
-//						dto.setLoginFlg(true);
-//					}
+				dto.setCharacterName(rs.getString("character_name"));
+				if (!(rs.getString("login_id").equals(null))) {
 					dto.setLoginFlg(true);
 				}
 			}
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return dto;
-		}
-		public LoginDTO getLoginDTO(){
-			return dto;
-		}
+	}
 
 }

@@ -18,8 +18,6 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 	private String payment;
 	private int TotalPrice;
 
-
-
 	// private BuyItemCompleteDAO bicdao=new BuyItemCompleteDAO();
 	@SuppressWarnings("unchecked")
 	public String execute() throws SQLException {
@@ -36,14 +34,17 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 				selectList.add(dto);
 			}
 
+			int id = Integer.parseInt(dto.getId());
 			for (int i = 0; i < selectList.size(); i++) {
-				int intCount = dto.getCount();
-				int intPrice = Integer.parseInt(dto.getItemPrice());
-				int TotalPrice = intCount * intPrice;
+				if (i == id) {
+					int intCount = dto.getCount();
+					int intPrice = Integer.parseInt(dto.getItemPrice());
+					int TotalPrice = intCount * intPrice;
 
-				session.put("total_price", TotalPrice);
-//				session.put("total_price", intCount * intPrice);
-				System.out.println(TotalPrice);
+					session.put("total_price", TotalPrice);
+					// session.put("total_price", intCount * intPrice);
+					System.out.println(TotalPrice);
+				}
 			}
 
 		}

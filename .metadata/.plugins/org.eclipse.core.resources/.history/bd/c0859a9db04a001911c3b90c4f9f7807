@@ -1,0 +1,65 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="descrption" content="" />
+<meta name="keywords" content="" />
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/testgame/css/Style.css">
+<link rel="img" type="image/png" href="/testgame/img">
+<title>UserHome</title>
+<style type="text/css">
+.headerul {
+	list-style: none;
+	float: right;
+	display: inline-block;
+}
+
+.headerli {
+	display: inline-block;
+}
+
+#main {
+	clear: both;
+	width: 100%;
+	min-height: 600px;
+	height: auto !important;
+	height: 100%;
+}
+
+input {
+	border-radius: 50px;
+	background-color: darkgray;
+	color: white;
+}
+
+input.rightuo {
+	border-radius: 50px;
+	background-color: darkgray;
+	color: white;
+}
+</style>
+</head>
+<body>
+	<div id="header">
+		<ul>
+			<li class=headerli><input type="button" name="rightup"
+				value="ログアウト" onclick="submitAction('LogoutAction')" /></li>
+		</ul>
+	</div>
+	<div id="main"></div>
+	<div class="mainleft"><input type="button" name="botan" value="休む" onclick="subimitAction('GoRestAction')" /></div>
+	<div class="maincenter"><input type="button" name="centerbotan" value="戦う" onclick="subimitAction('GoBattleAction')" /></div>
+	<div class="mainright"><input type="button" name="botan" value="ショップ" onclick="submitAction('GoShopAction')" /></div>
+
+	<div id="footer"></div>
+</body>
+</html>

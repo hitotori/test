@@ -1,0 +1,61 @@
+set names utf8;
+set foreign_key_checks=0;
+drop database if exists testgame;
+
+create database if not exists testgame;
+use testgame;
+
+drop table if exists login_user_transaction;
+
+create table user_transaction(
+id int not null primary key auto_increment,
+login_id varchar(16)unique not null primary key auto_increment,
+login_pass varchar(16),
+user_name varchar(50) not null primary key auto_increment,
+admin_flg varchar(1)
+id int not null primary key auto_increment,
+character_name varchar(30) not null primary key auto_increment,
+character_level int,
+character_hp int,
+character_attack int,
+character_defense int,
+character_experiencepoint int,
+insert_date datetime,
+update_date datetime
+);
+
+drop table if exists weapon_transaction;
+
+create table weapon_transaction(
+id int not null primary key auto_increment,
+item_name varchar(16),
+item_price int,
+item_attack int,
+item_defense int,
+item_text varchar(40),
+insert_date datetime,
+delete_date datetime
+);
+
+drop table if exists enemy_transaction;
+create table enemy_transaction(
+id int not null primary key auto_increment,
+enemy_name varchar(16),
+enemy_hp int,
+enemy_attack int,
+enemy_defense int,
+enemt_experience int,
+);
+
+
+INSERT INTO maincharacter_transaction(character_name,character_hp,character_attack,character_defense,character_experiencepoint)VALUES("デバッガー",5,100,50,50,0);
+
+INSERT INTO login_user_transaction(login_id,login_pass,user_name,admin_flg)VALUES("1","q","debagger","0");
+INSERT INTO login_user_transaction(login_id,login_pass,user_name,admin_flg)VALUES("a","a","manager","〇");
+INSERT INTO weapon_transaction(item_name,item_price,item_attack,item_defense,item_text)VALUES("とがった棒切れ",50,5,0,"少しとがった棒切れ相手に突き刺すと地味に痛い");
+INSERT INTO weapon_transaction(item_name,item_price,item_attack,item_defense,item_text)VALUES("鉄の剣",500,20,0,"立派な剣、銃刀法に違反しないよう刃はつぶしてある。");
+INSERT INTO weapon_transaction(item_name,item_price,item_attack,item_defense,item_text)VALUES("出刃包丁"2000,38,0,"ホームセンターにおいてある最上業物。モンスターだって痛いものは痛い");
+INSERT INTO weapon_transaction(item_name,item_price,item_attack,item_defense,item_text)VALUES("△トの剣",20000,100,30,"雷を操れるようになる。今となっては皆電気使ってるんだよなあ");
+INSERT INTO weapon_transaction(item_name,item_price,item_attack,item_defense,item_text)VALUES("無限ロケットランチャー",50000,300,0,"別世界の聖遺物。手にするものは無類の強さと隠密性を手に入れる。大佐ァ！大佐ァァ！");
+
+INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy,defense,enemy_experiense)VALUES("スライム",10,5,3,2);
