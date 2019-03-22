@@ -1,53 +1,61 @@
 package testgame.dto;
 
 public class LoginDTO {
-	private String loginId ;
+	private String loginId;
 	private String loginPassword;
 	private String userName;
 	private boolean loginFlg = false;
 	private String characterName;
 
-public String getCharacterName() {
+	public String getCharacterName() {
 		return characterName;
 	}
+
 	public void setCharacterName(String characterName) {
 		this.characterName = characterName;
 	}
 
-	//	追記
+	// 追記
 	private String adminFlg;
 
-	public String getLoginId(){
+	public String getLoginId() {
 		return loginId;
 	}
-	public void setLoginId(String loginId){
+
+	public void setLoginId(String loginId) {
 		this.loginId = loginId;
 	}
-	public String getLoginPassword(){
+
+	public String getLoginPassword() {
 		return loginPassword;
 	}
-	public void setLoginPassword(String loginPassword){
+
+	public void setLoginPassword(String loginPassword) {
 		this.loginId = loginPassword;
 	}
-	public String getUserName(){
+
+	public String getUserName() {
 		return userName;
 	}
-	public void setUserName(String userName){
+
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public boolean getLoginFlg(){
+
+	public boolean getLoginFlg() {
 		return loginFlg;
 	}
-	public void setLoginFlg(Boolean loginFlg ){
+
+	public void setLoginFlg(Boolean loginFlg) {
 		this.loginFlg = loginFlg;
 	}
 
-//	追記
-	public String getAdminFlg(){
+	// 追記
+	public String getAdminFlg() {
 		return adminFlg;
 	}
 
-	public void setAdminFlg(String adminFlg){
-		this.adminFlg=adminFlg;
+	public void setAdminFlg(String adminFlg) {
+		this.adminFlg = adminFlg;
 	}
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="com.internousdev.template.action" extends="struts-default">
+
+		<action name="LogoutAction" class="testgame.action.LogoutAction"
+			method="execute">
+			<result name="success">title.jsp</result>
+		</action>
+
+		<action name="TitleAction" class="testgame.action.TitleAction"
+			method="execute">
+			<result name="login">login.jsp</result>
+			<result name="success">home.jsp</result>
+		</action>
+
+		<action name="LoginAction" class="testgame.action.LoginAction"
+			method="execute">
+			<result name="success">home.jsp</result>
+			<result name="error">title.jsp</result>
+			<result name="beginner">login.jsp</result>
+		</action>
+
+</struts>

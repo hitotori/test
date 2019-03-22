@@ -1,0 +1,5 @@
+package testgame.dao;
+
+public class UserCreateDAO {
+
+}

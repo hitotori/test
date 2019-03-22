@@ -16,6 +16,11 @@
 <link rel="img" type="image/png" href="/testgame/img">
 <title>title</title>
 <style type="text/css">
+
+body{
+font-family:'MS Gothic', 'Hiragino Kaku Gothic Std', 'Yu Gothic';
+}
+
 .headerul{
 list-style:none;
 float:right;

@@ -17,8 +17,8 @@
 <link rel="img" type="image/png" href="/testgame/img">
 <title>UserHome</title>
 <style type="text/css">
-body {
-	background-color:;
+body{
+font-family:'MS Gothic', 'Hiragino Kaku Gothic Std', 'Yu Gothic';
 }
 #header{
 	background: -webkit-linear-gradient(top, gray, black);
@@ -44,8 +44,9 @@ body {
 	height: auto !important;
 	height: 100%;
 	text-align: center;
-	background-image: url(img/bg_natural_sougen11.jpg);
-	background-size: contain;
+	background-image: url(img/bg_natural_sougen.jpg);
+	background-size: cover;
+	background-repeat:no-repeat;
 }
 
 #mainheader {
@@ -55,12 +56,14 @@ body {
 	height: 100%;
 	text-align: center;
 	display: block;
-	background-image: url(img/bg_natural_sougen.jpg);
-	background-size: contain;
-	background-repeat: repeat;
 	/* background-position: center; */
 }
-
+/* #mainbotan{ */
+/* width:100%; */
+/* 	background-image: url(img/bg_natural_sougen11.jpg); */
+/* 	background-size: cover; */
+/* 	background-repeat:repeat; */
+/* } */
 input { border-radius:50px;
 	background-color: darkgray;
 	color: white;
@@ -109,15 +112,17 @@ img {
 </head>
 <body>
 	<div id="header">
-		<ul>
-			<li class=headerli><input type="button" class="rightup"
-				value="ログアウト" onclick="submitAction('LogoutAction')" /></li>
+		<ul><s:form action="LogoutAction" theme="simple">
+			<li class=headerli><input type="submit" class="rightup"
+				value="ログアウト" /></li>
+			</s:form>
 		</ul>
 	</div>
 	<div id="main">
 		<div id="mainheader">
 			<img src="img/figure_rpg_characters.png" />
 		</div>
+		<div id="mainbotan">
 		<div id="mainleft">
 			<input type="button" class="botan1" value="休む"
 				onclick="subimitAction('GoRestAction')" />
@@ -129,6 +134,7 @@ img {
 		<div id="mainright">
 			<input type="button" class="botan2" value="ショップ"
 				onclick="submitAction('GoShopAction')" />
+		</div>
 		</div>
 	</div>
 	<div id="footer"></div>

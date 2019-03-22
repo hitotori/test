@@ -21,7 +21,11 @@
 			method="execute">
 			<result name="success">home.jsp</result>
 			<result name="error">title.jsp</result>
-<!-- 			<result name="beginner">tutorial.jsp</result> -->
+			<result name="beginner">login.jsp</result>
+		</action>
+
+		<action name="UserCreateAction" class="testgame.action.UserCreateAction" method="execute">
+		   <result name="success">userCreate.jsp</result>
 		</action>
 	</package>
 </struts>

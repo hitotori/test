@@ -13,28 +13,88 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="/testgame/WebContent/css/Style.css">
+<link rel="stylesheet" type="text/css"
+	href="/testgame/WebContent/css/Style.css">
 <link rel="img" type="image/png" href="/testgame/img">
 <title>title</title>
 <style type="text/css">
-h1{
-text-align:center;
+body {
+	font-family: 'MS Gothic', 'Hiragino Kaku Gothic Std', 'Yu Gothic';
 }
-.Login{
-width:100%;
-text-align:center;
-}
-.botanbox{
-clear:both;
-text-align:center;
-}
-.submitbotton{
-text-align:center;
-}
-.submitlogin{
-text-align:center;
-background-color:orange;
 
+#header {
+	background-color: black;
+	margin: 0 auto;
+	border-radius: 10px;
+	width: 60%;
+	border: gray solid 2px;
+	margin-bottom: 50px;
+}
+
+.midashi {
+	height: 100%;
+	color: white;
+	border-radius: 10px;
+}
+
+#main {
+	text-align: center;
+	width: 100%;
+	min-height: 600px;
+	height: auto !important;
+	height: 100%;
+}
+
+h1 {
+	text-align: center;
+}
+
+.Login {
+	width: 50%;
+	height: auto;
+	text-align: center;
+	border: gray solid 2px;
+	background-color: black;
+	margin: 0 auto;
+	table-layout: fixed;
+}
+
+td {
+	padding-right: 20%;
+}
+
+.txt {
+	padding-left: 20%;
+	color: white;
+}
+
+.text {
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	box-shadow: none;
+	color: white;
+	border: white solid 1px;
+}
+
+.botanbox {
+	text-align: center;
+	margin-top: 40px;
+}
+
+.submitbotton {
+	text-align: center;
+	margin:0 auto;
+}
+
+.submitlogin1 {
+	text-align: center;
+	background-color: orange;
+}
+
+.submitlogin2 {
+	text-align: center;
+	background-color: orange;
 }
 </style>
 </head>
@@ -43,27 +103,28 @@ background-color:orange;
 		<h1 class="midashi">ログイン画面</h1>
 	</div>
 	<div id="main">
-		<s:form action="LoginAction">
+		<s:form action="LoginAction" theme="simple">
 
 			<table class="Login">
 				<tr>
-					<th scope="row"><s:label value="ユーザーID" /></th>
-					<td><s:textfield name="userId" class="text" value="" /></td>
+					<th scope="row"><s:label class="txt" value="ユーザーID" /></th>
+					<td><s:textfield name="loginUserId" class="text" value="" /></td>
 				</tr>
 				<tr>
-					<th scope="row"><s:label value="パスワード" /></th>
-					<td><s:textfield name="userPassword" class="text" value="" /></td>
+					<th scope="row"><s:label class="txt" value="パスワード" /></th>
+					<td><s:password name="loginPassword" class="text" value="" /></td>
 				</tr>
 			</table>
 			<div class="botanbox">
-			<div class="submitbotton">
-				<s:submit value="ログイン" class="submitlogin" onclick="LoginAction()" />
+				<div class="submitbotton">
+					<s:submit value="ログイン" class="submitlogin1" />
+				</div>
 			</div>
-			<div class="submitbotton">
-				<s:submit value="新規ユーザー登録" class="submitlogin"
-					onclick="UserCreateAction()" />
-			</div>
-			</div>
+		</s:form>
+		<s:form action="UserCreateAction" theme="simple">
+		<div class="submitbotton">
+			<s:submit value="新規ユーザー登録" class="submitlogin2" />
+		</div>
 		</s:form>
 	</div>
 
