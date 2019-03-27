@@ -15,6 +15,11 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	private String loginPassword;
 	private String userName;
 	private String characterName;
+	private String characterLv;
+	private String characterHP;
+	private String characterAttack;
+	private String characterDefense;
+	private String characterExp;
 	private Map<String, Object> session;
 	private UserCreateDAO uccdao = new UserCreateDAO();
 
@@ -22,10 +27,55 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 		uccdao.createuser(session.get("loginUserId").toString(),
 						  session.get("loginPassword").toString(),
 						  session.get("userName").toString(),
-						  session.get("characterName").toString());
+						  session.get("characterName").toString(),
+						  session.get("characterLv").toString(),
+						  session.get("characterHP").toString(),
+						  session.get("characterAttack").toString(),
+						  session.get("characterDefense").toString(),
+						  session.get("characterExp").toString());
 		String result = SUCCESS;
 
 		return result;
+	}
+
+	public String getCharacterHP() {
+		return characterHP;
+	}
+
+	public void setCharacterHP(String characterHP) {
+		this.characterHP = characterHP;
+	}
+
+	public String getCharacterLv() {
+		return characterLv;
+	}
+
+	public void setCharacterLv(String characterLv) {
+		this.characterLv = characterLv;
+	}
+
+	public String getCharacterAttack() {
+		return characterAttack;
+	}
+
+	public void setCharacterAttack(String characterAttack) {
+		this.characterAttack = characterAttack;
+	}
+
+	public String getCharacterDefense() {
+		return characterDefense;
+	}
+
+	public void setCharacterDefense(String characterDefense) {
+		this.characterDefense = characterDefense;
+	}
+
+	public String getCharacterExp() {
+		return characterExp;
+	}
+
+	public void setCharacterExp(String characterExp) {
+		this.characterExp = characterExp;
 	}
 
 	public String getCharacterName() {

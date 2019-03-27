@@ -13,18 +13,21 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="/testgame/WebContent/css/Style.css">
+<link rel="stylesheet" type="text/css"
+	href="/testgame/WebContent/css/Style.css">
 <link rel="img" type="image/png" href="/testgame/img">
 <title>UserHome</title>
 <style type="text/css">
-body{
-font-family:'MS Gothic', 'Hiragino Kaku Gothic Std', 'Yu Gothic';
+body {
+	font-family: 'MS Gothic', 'Hiragino Kaku Gothic Std', 'Yu Gothic';
 }
-#header{
+
+#header {
 	background: -webkit-linear-gradient(top, gray, black);
-	width:100%;
-	height:50px;
+	width: 100%;
+	height: 50px;
 }
+
 .headerul {
 	list-style: none;
 	float: right;
@@ -34,7 +37,7 @@ font-family:'MS Gothic', 'Hiragino Kaku Gothic Std', 'Yu Gothic';
 .headerli {
 	display: inline-block;
 	float: right;
-	margin-top:12px;
+	margin-top: 12px;
 }
 
 #main {
@@ -46,7 +49,7 @@ font-family:'MS Gothic', 'Hiragino Kaku Gothic Std', 'Yu Gothic';
 	text-align: center;
 	background-image: url(img/bg_natural_sougen.jpg);
 	background-size: cover;
-	background-repeat:no-repeat;
+	background-repeat: no-repeat;
 }
 
 #mainheader {
@@ -64,15 +67,20 @@ font-family:'MS Gothic', 'Hiragino Kaku Gothic Std', 'Yu Gothic';
 /* 	background-size: cover; */
 /* 	background-repeat:repeat; */
 /* } */
-input { border-radius:50px;
+input {
+	border-radius: 50px;
 	background-color: darkgray;
 	color: white;
 }
 
 input.rightup {
 	border-radius: 50px;
-	background-color: darkgray;
+	background-color: black;
 	color: white;
+}
+
+#mainbotan {
+	display: inline-block;
 }
 
 #mainleft {
@@ -112,9 +120,10 @@ img {
 </head>
 <body>
 	<div id="header">
-		<ul><s:form action="LogoutAction" theme="simple">
-			<li class=headerli><input type="submit" class="rightup"
-				value="ログアウト" /></li>
+		<ul>
+			<s:form action="LogoutAction" theme="simple">
+				<li class=headerli><input type="submit" class="rightup"
+					value="ログアウト" /></li>
 			</s:form>
 		</ul>
 	</div>
@@ -123,18 +132,26 @@ img {
 			<img src="img/figure_rpg_characters.png" />
 		</div>
 		<div id="mainbotan">
-		<div id="mainleft">
-			<input type="button" class="botan1" value="休む"
-				onclick="subimitAction('GoRestAction')" />
-		</div>
-		<div id="maincenter">
-			<input type="button" class="centerbotan" value="戦う"
-				onclick="subimitAction('GoBattleAction')" />
-		</div>
-		<div id="mainright">
-			<input type="button" class="botan2" value="ショップ"
-				onclick="submitAction('GoShopAction')" />
-		</div>
+			<div id="mainleft">
+				<s:form action="GoRestAction" theme="simple">
+					<input type="submit" class="botan1" value="休む" />
+				</s:form>
+			</div>
+
+
+			<div id="maincenter">
+				<s:form action="GoBattleAction" theme="simple">
+					<input type="submit" class="centerbotan" value="戦う" />
+				</s:form>
+			</div>
+
+
+			<div id="mainright">
+				<s:form action="GoShopAction" theme="simple">
+					<input type="submit" class="botan2" value="ショップ" />
+				</s:form>
+			</div>
+
 		</div>
 	</div>
 	<div id="footer"></div>

@@ -22,15 +22,22 @@ body {
 	font-family: 'MS Gothic', 'Hiragino Kaku Gothic Std', 'Yu Gothic';
 }
 
-#header {
-	background-color: black;
-	margin: 0 auto;
-	border-radius: 10px;
-	width: 60%;
-	border: gray solid 2px;
-	margin-bottom: 50px;
+#header{
+	background: -webkit-linear-gradient(top, gray, black);
+	width:100%;
+	height:60px;
+	margin:0 auto;
 }
+#main{
+clear:both;
+width:100%;
+min-height:600px;
+height:auto !important;
+height:100%;
+background-color:black;
 
+}
+}
 .midashi {
 	height: 100%;
 	color: white;
@@ -39,7 +46,7 @@ body {
 
 input.rightup {
 	border-radius: 50px;
-	background-color: darkgray;
+	background-color: black;
 	color: white;
 }
 
@@ -52,13 +59,37 @@ input.rightup {
 .headerli {
 	display: inline-block;
 	float: right;
-	margin-top: 12px;
+/* 	margin-top:1px; */
+}
+
+table{
+margin-top:50px;
+width:60%;
+background-color:black;
+margin:0 auto;
+padding-top:35px;
+}
+td{
+color:white;
+}
+.tbl{
+border:white 1px solid;
+}
+.clm{
+border:white 1px solid;
+text-align:center;
+}
+.txt{
+width:99%;
+}
+.botan{
+margin-right:49%;
 }
 </style>
 </head>
 <body>
 	<div id="header">
-		<ul>
+		<ul class="headerul">
 			<s:form action="GoTitleAction" theme="simple">
 				<li class=headerli><input type="submit" class="rightup"
 					value="タイトルに戻る" /></li>
@@ -71,24 +102,29 @@ input.rightup {
 		</s:if>
 		<table>
 			<s:form action="UserCreateConfirmAction">
-				<tr>
-					<td><label>ログインID</label></td>
-					<td><input type="text" name="loginUserId" value="" /></td>
+				<tr class="tbl">
+					<td class="clm"><label>ログインID</label></td>
+					<td><input type="text" class="txt" name="loginUserId" value="" /></td>
 				</tr>
-				<tr>
-					<td><label>ログインPASS</label></td>
-					<td><input type="text" name="loginPassword" value="" /></td>
+				<tr class="tbl">
+					<td class="clm"><label>ログインPASS</label></td>
+					<td><input type="text" class="txt" name="loginPassword" value="" /></td>
 				</tr>
-				<tr>
-					<td><label>ユーザー名</label></td>
-					<td><input type="text" name="userName" value="" /></td>
+				<tr class="tbl">
+					<td class="clm"><label>ユーザー名</label></td>
+					<td><input type="text" class="txt" name="userName" value="" /></td>
 				</tr>
-				<tr>
-					<td><label>キャラクターネーム</label></td>
-					<td><input type="text" name="characterName" value="" /></td>
+				<tr class="tbl">
+					<td class="clm"><label>キャラクターネーム</label></td>
+					<td><input type="text" class="txt" name="characterName" value="" /></td>
 				</tr>
 
-				<s:submit value="登録" />
+				<s:submit class="botan" value="登録" />
+				<tr>
+					<td><label> </label></td>
+<!-- 					キャラクターLV -->
+					<td><input type="hidden" name="characterLv" value="1" /></td>
+				</tr>
 				<tr>
 					<td><label> </label></td>
 <!-- 					キャラクターHP -->
@@ -104,8 +140,15 @@ input.rightup {
 <!-- 					キャラクターDefense -->
 					<td><input type="hidden" name="characterDefense" value="8" /></td>
 				</tr>
+				<tr>
+					<td><label> </label></td>
+<!-- 					キャラクターEXP -->
+					<td><input type="hidden" name="characterExp" value="0" /></td>
+				</tr>
 			</s:form>
 		</table>
+
+
 
 	</div>
 	<div id="footer"></div>

@@ -36,6 +36,20 @@ insert_date datetime,
 delete_date datetime
 );
 
+drop table if exists enemy_transaction;
+
+create table enemy_transaction(
+id int not null primary key auto_increment,
+enemy_name varchar(16),
+enemy_hp int,
+enemy_attack int,
+enemy_defense int,
+enemy_experiencepoint int,
+insert_date datetime,
+update_date datetime
+);
+
+
 
 INSERT INTO user_transaction(login_id,login_pass,user_name,character_name,character_level,character_hp,character_attack,character_defense,character_experiencepoint)VALUES("1","q","debagger","デバッガー",5,100,50,50,0);
 INSERT INTO user_transaction(login_id,login_pass,user_name,admin_flg)VALUES("a","a","manager","〇");
@@ -48,3 +62,15 @@ INSERT INTO weapon_transaction(item_name,item_price,item_attack,item_defense,ite
 INSERT INTO weapon_transaction(item_name,item_price,item_attack,item_defense,item_text)VALUES("ヘビーセイバー",15000,90,25,"「光」と「軽い」を勘違いしたわけではないよ？…本当だって！");
 INSERT INTO weapon_transaction(item_name,item_price,item_attack,item_defense,item_text)VALUES("△トの剣",25000,120,50,"雷を操れるようになる。今となっては皆電気使ってるんだよなあ。");
 INSERT INTO weapon_transaction(item_name,item_price,item_attack,item_defense,item_text)VALUES("無限ロケットランチャー",50000,400,0,"別世界の聖遺物。臭い人たちにのみ最高級の賞賛を得ることだろう。");
+
+
+INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy_defense,enemy_experiencepoint)VALUES("ヌフイム",10,10,10,2);
+INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy_defense,enemy_experiencepoint)VALUES("パンダ",50,18,20,10);
+INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy_defense,enemy_experiencepoint)VALUES("森の賢人",75,25,30,20);
+INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy_defense,enemy_experiencepoint)VALUES("ヌフイム改",100,30,30,40);
+INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy_defense,enemy_experiencepoint)VALUES("トライホーンペガサス",135,40,45,80);
+INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy_defense,enemy_experiencepoint)VALUES("水陸量尾用マッチョマン",180,55,60,100);
+INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy_defense,enemy_experiencepoint)VALUES("超合金ゴーレムクロビカリ",250,60,80,150);
+INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy_defense,enemy_experiencepoint)VALUES("深淵を狩る者",330,80,80,300);
+INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy_defense,enemy_experiencepoint)VALUES("前勇者ああああ",450,95,100,600);
+INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy_defense,enemy_experiencepoint)VALUES("ＹＨＶＨ",1500,110,125,2500);
