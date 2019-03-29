@@ -6,7 +6,14 @@ public class BuyItemDTO {
 	private String itemPrice;
 	private int count;
 	private String pay;
+	private String TotalPrice;
 
+	public String getTotalPrice() {
+		return TotalPrice;
+	}
+	public void setTotalPrice(String totalPrice) {
+		TotalPrice = totalPrice;
+	}
 	public String getPay() {
 		return pay;
 	}

@@ -1,0 +1,5 @@
+package testgame.status;
+
+public class SampleEnemyStatus {
+
+}

@@ -33,8 +33,9 @@ public class GoBattle1Action extends ActionSupport implements SessionAware{
 
 	public String execute() throws SQLException{
 //		String result =ERROR;
-		dto=dao.getCharacterInfo(characterName,characterLv,characterHP,characterATK,characterDEF,characterEXP);
-//		,adminFlg
+//		dto=dao.getCharacterInfo(characterName,characterLv,characterHP,characterATK,characterDEF,characterEXP);
+
+		dto=dao.getBattleInfo(characterName, characterLv, characterHP, characterATK, characterDEF, characterEXP, enemyName, enemyHP, enemyATK, enemyDEF, enemyEXP);
 //		session.put("loginUser",dto);
 		session.put(dto.getCharacterName(), characterName);
 		session.put(dto.getCharacterLv(), characterLv);
@@ -45,11 +46,11 @@ public class GoBattle1Action extends ActionSupport implements SessionAware{
 
 
 //		 dto=dao.getEnemyInfo(enemyName,enemyHP,enemyATK,enemyDEF,enemyEXP);
-//		session.put(dto.getEnemyName(), enemyName);
-//		session.put(dto.getEnemyHP(), enemyHP);
-//		session.put(dto.getEnemyATK(), enemyATK);
-//		session.put(dto.getEnemyDEF(), enemyDEF);
-//		session.put(dto.getEnemyEXP(), enemyEXP);
+		session.put(dto.getEnemyName(), enemyName);
+		session.put(dto.getEnemyHP(), enemyHP);
+		session.put(dto.getEnemyATK(), enemyATK);
+		session.put(dto.getEnemyDEF(), enemyDEF);
+		session.put(dto.getEnemyEXP(), enemyEXP);
 
 			String result=SUCCESS;
 

@@ -5,6 +5,17 @@ package com.internousdev.template.action;
 
 public class SearchAction {
 
+	private String searching;
+
+
+
+	public String getSearching() {
+		return searching;
+	}
+
+	public void setSearching(String searching) {
+		this.searching = searching;
+	}
 
 
 }

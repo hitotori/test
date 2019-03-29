@@ -1,0 +1,63 @@
+package testgame.action;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+import testgame.status.SampleBraverStatus;
+import testgame.status.SampleEnemyStatus;
+
+public class BattleActionSample {
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		SampleBraverStatus b = new SampleBraverStatus();
+		SampleEnemyStatus e = new SampleEnemyStatus();
+//		b.setName("Braver");
+//		e.setEnemyname("Enemy");
+
+		System.out.println(e.getEnemyName() + "が現れた。");
+		while (e.getEnemyHP() <= 0 || b.getHP() <= 0) {
+			try {
+				for (int i = 0; i < 2; i++) {
+					BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+					int num = Integer.parseInt(br.readLine());
+					System.out.println(b.getName() + "の行動1:たたかう 2:まほう 3:にげる");
+					switch (num) {
+					case 1:
+						System.out.println("たたかう");
+						System.out.println(e.getEnemyName() + "に10のダメージを与えた");
+						e.setEnemyHP(e.getEnemyHP() - 10);
+
+						if (e.getEnemyHP() <= 0) {
+							break;
+						}
+
+					case 2:
+						System.out.println(("魔法"));
+						System.out.println(e.getEnemyname() + "に20のダメージを与えた");
+						e.setEnemyHP( e.getEnemyHP() - 20 );
+						if (e.getEnemyHP() <= 0) {
+							break;
+						}
+					case 3:
+						System.out.println(("にげる"));
+						System.out.println(b.getName() + "は逃げ出した");
+						break;
+					}
+					System.out.println(e.getEnemyname() + "の行動");
+					if (i == 1) {
+						System.out.println(e.getEnemyname() + "の攻撃");
+
+						System.out.println(b.getName() + "に15のダメージ");
+						b.setHP( b.getHP() - 15 );
+						if (b.getHP() <= 0) {
+							break;
+						}
+					}
+					System.out.println("何もしなかった");
+				}
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
+}

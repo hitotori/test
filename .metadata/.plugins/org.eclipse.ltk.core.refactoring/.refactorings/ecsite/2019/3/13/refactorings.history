@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="フィールド &apos;com.internousdev.template.action.SearchAction.searching&apos; を &apos;com.internousdev.template.action.SearchAction&apos;にカプセル化します&#x0D;&#x0A;- 元のプロジェクト: &apos;ecsite&apos;&#x0D;&#x0A;- オリジナル要素: &apos;com.internousdev.template.action.SearchAction.searching&apos;&#x0D;&#x0A;- getter メソッド名: &apos;getSearching&apos;&#x0D;&#x0A;- setter メソッド名: &apos;setSearching&apos;&#x0D;&#x0A;- フィールドの可視性: &apos;public&apos;&#x0D;&#x0A;- 宣言型の getter および setter メソッドを使用" comments="false" declaring="true" description="フィールド &apos;searching&apos; をカプセル化します" flags="589830" getter="getSearching" id="org.eclipse.jdt.ui.self.encapsulate" input="/src&lt;com.internousdev.template.action{SearchAction.java[SearchAction^searching" insertion="-1" setter="setSearching" stamp="1553834877184" version="1.0" visibility="1"/>
+</session>

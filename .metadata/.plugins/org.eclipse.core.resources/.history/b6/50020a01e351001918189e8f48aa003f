@@ -1,0 +1,25 @@
+package testgame.status;
+
+public class SampleEnemyStatus {
+	public class Enemy {
+		int enemyHP = 100;
+		String enemyname = "Enemy";
+
+		public int getEnemyHP() {
+			return enemyHP;
+		}
+
+		public void setEnemyHP(int enemyHP) {
+			this.enemyHP = enemyHP;
+		}
+
+		public String getEnemyname() {
+			return enemyname;
+		}
+
+		public void setEnemyname(String enemyname) {
+			this.enemyname = enemyname;
+		}
+
+	}
+}

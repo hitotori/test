@@ -6,8 +6,8 @@ import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
 
-import com.internousdev.template.dto.BuyItemDTO;
 //import com.internousdev.template.dao.BuyItemCompleteDAO;
+import com.internousdev.template.dto.BuyItemDTO;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class BuyItemConfirmAction extends ActionSupport implements SessionAware {
@@ -18,7 +18,8 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 	private String payment;
 	private int TotalPrice;
 
-	// private BuyItemCompleteDAO bicdao=new BuyItemCompleteDAO();
+//	private BuyItemCompleteDAO dao=new BuyItemCompleteDAO();
+
 	@SuppressWarnings("unchecked")
 	public String execute() throws SQLException {
 		selectList = (ArrayList<BuyItemDTO>) session.get("selectList");
@@ -47,12 +48,23 @@ public class BuyItemConfirmAction extends ActionSupport implements SessionAware 
 				}
 			}
 
+//			String item_transaction_id;
+//			String user_master_id;
+//			String total_price;
+//			String count;
+//			dao.BuyItemInfo(session.get(item_transaction_id).toString(),
+//					session.get(count).toString(),
+//					session.get(user_master_id).toString(),
+//					session.get(total_price).toString(),
+//					session.get(pay).toString());
+//			session.get("login_user_id").toString();
+
 		}
-		// bicdao.buyItemInfo(session.get("id").toString(),
-		// session.get("login_user_id").toString(),
-		// session.get("buyItem_price").toString(),
-		// session.get("count").toString(),
-		// session.get("pay").toString());
+//		 bicdao.buyItemInfo(session.get("id").toString(),
+//		 session.get("login_user_id").toString(),
+//		 session.get("buyItem_price").toString(),
+//		 session.get("count").toString(),
+//		 session.get("pay").toString());
 
 		String result = SUCCESS;
 
