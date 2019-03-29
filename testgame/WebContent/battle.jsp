@@ -76,6 +76,7 @@ height:90%;
 background-color:black;
 color:white;
 font-family: 'MS Gothic', 'Hiragino Kaku Gothic Std', 'Yu Gothic';
+border:roghtgray solid 1px;
 }
 </style>
 

@@ -7,7 +7,6 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import testgame.dao.LoginDAO;
 import testgame.dto.LoginDTO;
 
 public class TitleAction extends ActionSupport implements SessionAware {
@@ -16,7 +15,7 @@ public class TitleAction extends ActionSupport implements SessionAware {
 	public String execute() throws SQLException {
 		String result = "login";
 		if (session.containsKey("id")) {
-			LoginDAO dao = new LoginDAO();
+//			LoginDAO dao = new LoginDAO();
 			LoginDTO dto = new LoginDTO();
 			session.put("login_id", dto.getLoginId());
 			session.put("user_name", dto.getUserName());

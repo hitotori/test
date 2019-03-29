@@ -120,9 +120,11 @@ text-align:center;
       <li class=m1>
          <input type="button"  class="start" value="称号（実装されていません）" onclick="submitAction('')" />
       </li>
+      <s:form action="GoTitleAction" theme="simple">
       <li class=m1>
-         <input type="submit"  class="start" value="再度タイトル表示" onclick="submitAction('LogoutAction')" />
+         <input type="submit"  class="start" value="再度タイトル表示" />
       </li>
+      </s:form>
    </ul>
 
 </div>
