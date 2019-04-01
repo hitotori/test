@@ -208,6 +208,9 @@ clear:both;
 		<div class="box">
 			<img src="img/toy_slime_suraimu.png" />
 		</div>
+
+<!-- 		この下の部分を行動選択からログに切り替えたい。それ用のページを作るべき？ -->
+<!-- 		その場合はログ用のページからクリック処理等でこのページに戻ったうえでデータの更新をさせなきゃいけない -->
 		<div class="command">
 		<table class="commandbox">
 		<tr class="command1"><td class="command2">ここに選択肢</td></tr>

@@ -17,6 +17,12 @@ public class BattleActionSample {
 		b.setName("Braver");
 		e.setEnemyName("Enemy");
 
+
+
+
+		//System.out.println();の部分はjspにて似たように表示させる。
+		//表示はlogの場所。logを箱のギリギリで新しいやつに更新するやり方は要検討。
+
 		System.out.println(e.getEnemyName() + "が現れた。");
 		while (e.getEnemyHP() <= 0 || b.getHP() <= 0) {
 			try {

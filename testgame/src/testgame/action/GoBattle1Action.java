@@ -29,13 +29,15 @@ public class GoBattle1Action extends ActionSupport implements SessionAware{
 	private BattleDTO dto=new BattleDTO();
 //	private ArrayList<BuyItemDTO> itemList=new ArrayList<BuyItemDTO>();
 
+//このページ複雑な処理いらないかもとりあえず進んだうえでユーザー情報さえDTOに格納できれば平気かも
 
 
 	public String execute() throws SQLException{
 //		String result =ERROR;
 //		dto=dao.getCharacterInfo(characterName,characterLv,characterHP,characterATK,characterDEF,characterEXP);
 
-		dto=dao.getBattleInfo(characterName, characterLv, characterHP, characterATK, characterDEF, characterEXP, enemyName, enemyHP, enemyATK, enemyDEF, enemyEXP);
+		dto=dao.getBattleInfo(characterName, characterLv, characterHP, characterATK, characterDEF, characterEXP,
+				enemyName, enemyHP, enemyATK, enemyDEF, enemyEXP);
 //		session.put("loginUser",dto);
 		session.put(dto.getCharacterName(), characterName);
 		session.put(dto.getCharacterLv(), characterLv);
@@ -52,9 +54,9 @@ public class GoBattle1Action extends ActionSupport implements SessionAware{
 		session.put(dto.getEnemyDEF(), enemyDEF);
 		session.put(dto.getEnemyEXP(), enemyEXP);
 
-			String result=SUCCESS;
+//			String result=SUCCESS;
 
-			return result;
+			return SUCCESS;
 		}
 
 

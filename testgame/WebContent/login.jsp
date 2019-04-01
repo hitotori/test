@@ -16,10 +16,11 @@
 <link rel="stylesheet" type="text/css"
 	href="/testgame/WebContent/css/Style.css">
 <link rel="img" type="image/png" href="/testgame/img">
-<title>title</title>
+<title>Login</title>
 <style type="text/css">
 body {
 	font-family: 'MS Gothic', 'Hiragino Kaku Gothic Std', 'Yu Gothic';
+	background-color:black;
 }
 
 #header {
@@ -27,7 +28,7 @@ body {
 	margin: 0 auto;
 	border-radius: 10px;
 	width: 60%;
-	border: gray solid 2px;
+	border: gray solid 3px;
 	margin-bottom: 50px;
 }
 
@@ -53,7 +54,7 @@ h1 {
 	width: 50%;
 	height: auto;
 	text-align: center;
-	border: gray solid 2px;
+	border: gray solid 3px;
 	background-color: black;
 	margin: 0 auto;
 	table-layout: fixed;
@@ -89,12 +90,14 @@ td {
 
 .submitlogin1 {
 	text-align: center;
-	background-color: orange;
+	background-color: black;
+	color:white;
 }
 
 .submitlogin2 {
 	text-align: center;
-	background-color: orange;
+	background-color: black;
+	color:white;
 }
 </style>
 </head>

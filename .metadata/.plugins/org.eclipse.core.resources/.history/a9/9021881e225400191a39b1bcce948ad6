@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="com.internousdev.template.action" extends="struts-default">
+
+		<action name="LogoutAction" class="testgame.action.LogoutAction"
+			method="execute">
+			<result name="success">title.jsp</result>
+		</action>
+
+		<action name="TitleAction" class="testgame.action.TitleAction"
+			method="execute">
+			<result name="login">login.jsp</result>
+			<result name="success">home.jsp</result>
+		</action>
+
+		<action name="GoTitleAction" class="testgame.action.GoTitleAction" method="execute">
+		   <result name="success">title.jsp</result>
+		</action>
+
+		<action name="LoginAction" class="testgame.action.LoginAction"
+			method="execute">
+			<result name="success">home.jsp</result>
+			<result name="error">loginError.jsp</result>
+		</action>
+
+		<action name="UserCreateAction" class="testgame.action.UserCreateAction"
+			method="execute">
+			<result name="success">userCreate.jsp</result>
+		</action>
+
+		<action name="UserCreateConfirmAction" class="testgame.action.UserCreateConfirmAction"
+			method="execute">
+			<result name="success">userCreateConfirm.jsp</result>
+		</action>
+
+		<action name="UserCreateCompleteAction" class="testgame.action.UserCreateCompleteAction"
+			method="execute">
+			<result name="success">userCreateComplete.jsp</result>
+		</action>
+
+		<action name="GoBattleAction" class="testgame.action.GoBattleAction" method="execute">
+		   <result name="success">battle.jsp</result>
+		</action>
+
+		<action name="GoBattle1Action" class="testgame.action.GoBattle1Action" method="execute">
+		   <result name="success">battle1.jsp</result>
+		</action>
+	</package>
+</struts>
