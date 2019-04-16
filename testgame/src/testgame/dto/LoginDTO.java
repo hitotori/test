@@ -31,7 +31,7 @@ public class LoginDTO {
 	}
 
 	public void setLoginPassword(String loginPassword) {
-		this.loginId = loginPassword;
+		this.loginPassword = loginPassword;
 	}
 
 	public String getUserName() {

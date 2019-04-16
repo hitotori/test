@@ -17,7 +17,7 @@
 	href="/testgame/WebContent/css/Style.css">
 <link rel="img" type="image/png" href="/testgame/img">
 <link href="http://kuneoresearch.com/wp-content/themes/stinger5verkuneo/font/PixelMplus10-Regular.ttf'">
-<title>UserHome</title>
+<title>ヌフイム戦</title>
 <style type="text/css">
 @font-face {
 	font-family: PixelMplus10-Regular;
@@ -122,12 +122,12 @@ td{
 /* color:white; */
 /* } */
 img{
-
-
 	height: 200px;
 	width: 200px;
 	margin: 0 auto;
 }
+
+
 #footer{
 clear:both;
 }
@@ -149,15 +149,15 @@ clear:both;
 			<table class="chara">
 				<tr>
 					<td>Name:</td>
-					<td>値</td>
+					<td><s:property value="session.characterName"/></td>
 				</tr>
 				<tr>
 					<td>Lv:</td>
-					<td>値</td>
+					<td><s:property value="session.characterLv" /></td>
 				</tr>
 				<tr>
 					<td>HP:</td>
-					<td>値</td>
+					<td><s:property value="session.characterHP" /></td>
 				</tr>
 			</table>
 
@@ -215,13 +215,13 @@ clear:both;
 <!-- 		その場合はログ用のページからクリック処理等でこのページに戻ったうえでデータの更新をさせなきゃいけない -->
 		<div class="command">
 		<table class="commandbox">
-		<tr class="command1"><td class="command2">ここに選択肢</td></tr>
+		<tr class="command1"><td class="command2"><a href='<s:url action="BattleAction"/>'>戦う</a></td></tr>
 		<tr class="command1"><td class="command2">command</td></tr>
 		<tr class="command1"><td class="command2">またはログ</td></tr>
 		<tr class="command1"><td class="command2">log</td></tr>
 		</table>
 		</div>
-		<div class="log">ヌフイム</div>
+		<div class="log"><s:property value="session.enemyName"/></div>
 	</div>
 	<div id="footer"></div>
 </body>

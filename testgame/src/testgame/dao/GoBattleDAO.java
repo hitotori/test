@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import testgame.dto.BattleDTO;
 import testgame.util.DBConnector;
 
+
 public class GoBattleDAO {
 	private DBConnector db = new DBConnector();
 	private Connection con = db.getConnection();
@@ -22,50 +23,20 @@ public class GoBattleDAO {
 		// where enemyname='ヌフイム'のような表記でいいのか？
 
 
-	public BattleDTO getBattleInfo(String characterName, String characterLv, String characterHP, String characterATK,
-			String characterDEF, String characterEXP,String enemyName, String enemyHP, String enemyATK, String enemyDEF, String enemyEXP){
-		String sql="SELECT ut.character_name,et.enemy_name,ut.character_level,ut.character_hp,ut.character_attack,"
-				+ "ut.character_defense,utcharacter_experiencepoint,et.enemy_hp,et.enemy_attack,"
-				+ "et.enemy_defense,et.enemy_experiencepoint "
-				+ "FROM user_transaction ut LEFT JOIN enemy_transaction et "
-				+ "ON et.enemy_name='ヌフイム' WHERE ut.character_name=? AND et.enemy_name=?"
-				+ " ORDER BY insert_date DESC";
-
+	public BattleDTO getEnemyInfo(){
+//		String charactersql="SELECT * FROM enemy_transaction WHERE enemy_name=ヌフイム ,enemy_hp=10, enemy_attack=10 ,enemy_defense=10,enemy_experiencepoint=2";
+		String enemysql="SELECT * FROM enemy_transaction WHERE id=1";
 		try {
-//			PreparedStatement ps = con.prepareStatement(charactersql);
-			PreparedStatement ps=con.prepareStatement(sql);
-			ps.setString(1, characterName);
-			ps.setString(2, characterLv);
-			ps.setString(3, characterHP);
-			ps.setString(4, characterATK);
-			ps.setString(5, characterDEF);
-			ps.setString(6, characterEXP);
-
-			ps.setString(7, enemyName);
-			ps.setString(8, enemyHP);
-			ps.setString(9, enemyATK);
-			ps.setString(10, enemyDEF);
-			ps.setString(11, enemyEXP);
-
+			PreparedStatement ps = con.prepareStatement(enemysql);
+//			PreparedStatement ps=con.prepareStatement(sql);
+//			ps.setString(1, id);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				dto.setCharacterName(rs.getString("characterName"));
-				dto.setCharacterLv(rs.getString("characterLv"));
-				dto.setCharacterHP(rs.getString("characterHP"));
-				dto.setCharacterATK(rs.getString("characterATK"));
-				dto.setCharacterDEF(rs.getString("characterDEF"));
-				dto.setCharacterEXP(rs.getString("characterEXP"));
-
-				dto.setEnemyName(rs.getString("enemyName"));
-				dto.setEnemyHP(rs.getString("enemyHP"));
-				dto.setEnemyATK(rs.getString("enemyATK"));
-				dto.setEnemyDEF(rs.getString("enemyDEF"));
-				dto.setEnemyEXP(rs.getString("enemyEXP"));
-
-				if (!(rs.getString("characterName").equals(null))) {
-					// sessionに入れるべきかどうか
-
-				}
+				dto.setEnemyName(rs.getString("enemy_name"));
+				dto.setEnemyHP(rs.getString("enemy_hp"));
+				dto.setEnemyATK(rs.getString("enemy_attack"));
+				dto.setEnemyDEF(rs.getString("enemy_defense"));
+				dto.setEnemyEXP(rs.getString("enemy_experiencepoint"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -73,31 +44,30 @@ public class GoBattleDAO {
 		return dto;
 	}
 
-//	public BattleDTO getEnemyInfo(String enemyName, String enemyHP, String enemyATK, String enemyDEF, String enemyEXP) {
-//
-//		String enemysql = "SELECT * FROM enemy_transaction where enemy_name='ヌフイム' AND enemy_hp=10 AND enemy_attack=10 AND enemy_defense=10"
-//				+ "AND enemy_experiencepoint=2";
-//		try {
-//			PreparedStatement ps = con.prepareStatement(enemysql);
-//			ps.setString(1, enemyName);
-//			ps.setString(2, enemyHP);
-//			ps.setString(3, enemyATK);
-//			ps.setString(4, enemyDEF);
-//			ps.setString(5, enemyEXP);
-//			ResultSet rs = ps.executeQuery();
-//			if (rs.next()) {
-//				dto.setEnemyName(rs.getString("enemyName"));
-//				dto.setEnemyHP(rs.getString("enemyHP"));
-//				dto.setEnemyATK(rs.getString("enemyATK"));
-//				dto.setEnemyDEF(rs.getString("enemyDEF"));
-//				dto.setEnemyEXP(rs.getString("enemyEXP"));
-//
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return dto;
-//	}
+	public BattleDTO getCharacterInfo(String loginId) {
+
+		String charactersql = "SELECT * FROM user_transaction where login_id=?";
+
+		try {
+			PreparedStatement ps = con.prepareStatement(charactersql);
+			ps.setString(1, loginId);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				dto.setCharacterName(rs.getString("character_name"));
+				dto.setCharacterLv(rs.getString("character_level"));
+				dto.setCharacterHP(rs.getString("character_hp"));
+				dto.setCharacterATK(rs.getString("character_attack"));
+				dto.setCharacterDEF(rs.getString("character_defense"));
+				dto.setCharacterEXP(rs.getString("character_experiencepoint"));
+
+
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return dto;
+	}
 
 	public BattleDTO getBattleDTO() {
 		return dto;

@@ -57,14 +57,13 @@ public class LoginDAO {
 		private Connection con=db.getConnection();
 		private LoginDTO dto=new LoginDTO();
 		public LoginDTO getLoginUserInfo(String loginUserId,String loginPassword){
-			                                                   //ここにString CharacterNameもいれる。
+
 		String sql="SELECT * FROM user_transaction where login_id=? AND login_pass=?";
 
 		try{
 			PreparedStatement ps=con.prepareStatement(sql);
 			ps.setString(1, loginUserId);
 			ps.setString(2, loginPassword);
-			//ps.setString(3,characterName);
 
 			ResultSet rs=ps.executeQuery();
 			if(rs.next()){

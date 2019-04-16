@@ -29,32 +29,31 @@ public class GoBattle1Action extends ActionSupport implements SessionAware{
 	private BattleDTO dto=new BattleDTO();
 //	private ArrayList<BuyItemDTO> itemList=new ArrayList<BuyItemDTO>();
 
-//このページ複雑な処理いらないかもとりあえず進んだうえでユーザー情報さえDTOに格納できれば平気かも
-
 
 	public String execute() throws SQLException{
-//		String result =ERROR;
-//		dto=dao.getCharacterInfo(characterName,characterLv,characterHP,characterATK,characterDEF,characterEXP);
 
-		dto=dao.getBattleInfo(characterName, characterLv, characterHP, characterATK, characterDEF, characterEXP,
-				enemyName, enemyHP, enemyATK, enemyDEF, enemyEXP);
-//		session.put("loginUser",dto);
-		session.put(dto.getCharacterName(), characterName);
-		session.put(dto.getCharacterLv(), characterLv);
-		session.put(dto.getCharacterHP(), characterHP);
-		session.put(dto.getCharacterATK(),characterATK);
-		session.put(dto.getCharacterDEF(), characterDEF);
-		session.put(dto.getCharacterEXP(), characterEXP);
+		dto=dao.getEnemyInfo();
+		session.put("enemyName",dto.getEnemyName());
+		session.put("enemyHP",dto.getEnemyHP());
+		session.put("enemyATK",dto.getEnemyATK());
+		session.put("enemyDEF",dto.getEnemyDEF());
+		session.put("enemyEXP",dto.getEnemyEXP());
 
+		System.out.println(dto.getEnemyName());
 
-//		 dto=dao.getEnemyInfo(enemyName,enemyHP,enemyATK,enemyDEF,enemyEXP);
-		session.put(dto.getEnemyName(), enemyName);
-		session.put(dto.getEnemyHP(), enemyHP);
-		session.put(dto.getEnemyATK(), enemyATK);
-		session.put(dto.getEnemyDEF(), enemyDEF);
-		session.put(dto.getEnemyEXP(), enemyEXP);
+		String loginId;
+		loginId = session.get("loginId").toString();
 
-//			String result=SUCCESS;
+		dto=dao.getCharacterInfo(loginId);
+		session.put("characterName",dto.getCharacterName());
+		session.put("characterLv",dto.getCharacterLv());
+		session.put("characterHP",dto.getCharacterHP());
+		session.put("characterATK",dto.getCharacterATK());
+		session.put("characterDEF",dto.getCharacterDEF());
+		session.put("characterEXP",dto.getCharacterEXP());
+
+		System.out.println("=================================");
+		System.out.println(dto.getCharacterName());
 
 			return SUCCESS;
 		}

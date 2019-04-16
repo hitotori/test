@@ -81,6 +81,8 @@ text-align:center;
 }
 .txt{
 width:99%;
+background-color:black;
+color:white;
 }
 .botan{
 margin-right:49%;

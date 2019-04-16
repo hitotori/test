@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+<constant name="struts.devMode" value="true"/>
+<package name="com.internousdev.template.action" extends="struts-default">
+
+
+<action name="GoHomeAction" class="com.internousdev.template.action.GoHomeAction" method="execute">
+  <result name="success">home.jsp</result>
+</action>
+
+  <action name="HomeAction" class="com.internousdev.template.action.HomeAction" method="execute">
+   <result name="login">login.jsp</result>
+   <result name="success">buyItem.jsp</result>
+  </action>
+
+<!-- 管理者用のログインページに移動 -->
+<action name="ManagerHomeAction" class="com.internousdev.template.action.ManagerHomeAction" method="execute">
+  <result name="login">managerLogin.jsp</result>
+  <result name="success">managerLogin.jsp</result>
+</action>
+
+<action name="ManagerAction" class="com.internousdev.template.action.ManagerAction" method="execute">
+  <result name="success">myPage.jsp</result>
+<!--   ↑ここを管理者専用にした場合に通常のページbuyItem.jspかmyPageに飛ばす。-->
+  <result name="error">managerLoginError.jsp</result>
+  <result name="manager">manager.jsp</result>
+</action>
+
+  <action name="LoginAction" class="com.internousdev.template.action.LoginAction" method="execute">
+<!--   ECサイトの時の -->
+<!--    <result name="success">buyItem.jsp</result> -->
+<result name="success">buyItem.jsp</result>
+   <result name="error">loginError.jsp</result>
+  </action>
+
+<action name="ProductEntryAction" class="com.internousdev.template.action.ProductEntryAction" method="execute">
+  <result name="success">productEntry.jsp</result>
+</action>
+
+<action name="ProductEntryConfirmAction" class="com.internousdev.template.action.ProductEntryConfirmAction" method="execute">
+  <result name="success">productEntryConfirm.jsp</result>
+  <result name="error">productEntry.jsp</result>
+</action>
+
+<action name="ProductCompleteAction" class="com.internousdev.template.action.ProductEntryCompleteAction" method="execute">
+  <result name="success">productEntryComplete.jsp</result>
+  <result name="error">productEntry.jsp</result>
+</action>
+
+<action name="ProductEntryCompleteAction" class="com.internousdev.template.action.ProductEntryCompleteAction" method="execute">
+  <result name="success">productEntryConfirm.jsp</result>
+</action>
+
+
+  <action name="UserCreateAction" class="com.internousdev.template.action.UserCreateAction" method="execute">
+   <result name="success">userCreate.jsp</result>
+<!--    <result name="back">login.jsp</result> -->
+  </action>
+
+  <action name="UserCreateConfirmAction" class="com.internousdev.template.action.UserCreateConfirmAction" method="execute">
+   <result name="success">userCreateConfirm.jsp</result>
+<!--    自主追加 -->
+   <result name="error">error.jsp</result>
+<!--    /自主追加 -->
+  </action>
+
+  <action name="UserCreateCompleteAction" class="com.internousdev.template.action.UserCreateCompleteAction" method="execute">
+   <result name="success">userCreateComplete.jsp</result>
+  </action>
+
+
+  <action name="BuyItemAction" class="com.internousdev.template.action.BuyItemAction" method="execute">
+   <result name="success">buyItemConfirm.jsp</result>
+   <result name="error">buyItem.jsp</result>
+  </action>
+
+  <action name="BuyItemConfirmAction" class="com.internousdev.template.action.BuyItemConfirmAction" method="execute">
+   <result name="success">buyItemComplete.jsp</result>
+<!--    <result name="back">buyItem.jsp</result> -->
+  </action>
+
+<!--   <action name="BuyItemCompleteAction" class="com.internousdev.template.action.BuyItemCompleteAction" method="execute"> -->
+<!--     <result name="success">home.jsp</result> -->
+<!--   </action> -->
+
+  <action name="MyPageAction" class="com.internousdev.template.action.MyPageAction" method="execute">
+   <result name="success">myPage.jsp</result>
+   <result name="error">myPage.jsp</result>
+  </action>
+
+  <action name="LogoutAction" class="com.internousdev.template.action.LogoutAction" method="execute">
+    <result name="success">home.jsp</result>
+  </action>
+
+<action name="ItemListAction" class="com.internousdev.template.action.ItemListAction" method="execute">
+ <result name="success">itemList.jsp</result>
+ <result name="error">manager.jsp</result>
+</action>
+
+<action name="ManagerCreateAction" class="com.internousdev.template.action.ManagerCreateAction" method="execute">
+  <result name="success">managerCreate.jsp</result>
+</action>
+
+<action name="ManagerCreateConfirmAction" class="com.internousdev.template.action.ManagerCreateConfirmAction" method="execute">
+   <result name="success">managerCreateConfirm.jsp</result>
+   <result name="error">managerCreateError.jsp</result>
+</action>
+
+<action name="ManagerCreateCompleteAction" class="com.internousdev.template.action.ManagerCreateCompleteAction" method="execute">
+  <result name="success">managerCreateComplete.jsp</result>
+</action>
+
+<action name="UserListAction" class="com.internousdev.template.action.UserListAction" method="execute">
+  <result name="success">userList.jsp</result>
+</action>
+
+
+</package>
+</struts>
