@@ -14,9 +14,9 @@ public class UserCreateDAO {
 	private Connection con=db.getConnection();
 //	private DateUtil dateUtil=new DateUtil();
 
-	private String sql="INSERT INTO user_transaction(login_id,login_pass,user_name,character_name,character_level,character_HP,character_attack,character_defense,character_experiencepoint)VALUES(?,?,?,?,?,?,?,?,?)";
+	private String sql="INSERT INTO user_transaction(login_id,login_pass,user_name,character_name,character_level,character_maxhp,character_HP,character_attack,character_defense,character_experiencepoint)VALUES(?,?,?,?,?,?,?,?,?,?)";
 
-	public void createuser(String loginUserId,String loginuserPassword,String userName,String characterName,String characterLv,String characterHP,String characterAttack,String characterDefense,String characterExp)throws SQLException{
+	public void createuser(String loginUserId,String loginuserPassword,String userName,String characterName,String characterLv,String characterMaxHP,String characterHP,String characterAttack,String characterDefense,String characterExp)throws SQLException{
 		try{
 			PreparedStatement ps=con.prepareStatement(sql);
 			ps.setString(1, loginUserId);
@@ -24,11 +24,11 @@ public class UserCreateDAO {
 			ps.setString(3, userName);
 			ps.setString(4, characterName);
 			ps.setString(5, characterLv);
-			ps.setString(6, characterHP);
-			ps.setString(7, characterAttack);
-			ps.setString(8, characterDefense);
-			ps.setString(9, characterExp);
-//			ps.setString(4, dateUtil.getDate());
+			ps.setString(6, characterMaxHP);
+			ps.setString(7, characterHP);
+			ps.setString(8, characterAttack);
+			ps.setString(9, characterDefense);
+			ps.setString(10, characterExp);
 
 			ps.execute();
 		}catch(Exception e){

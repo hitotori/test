@@ -12,26 +12,36 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 	private String loginPassword;
 	private String userName;
 	private String characterName;
-	private String characterLv;
-	private String characterHP;
-	private String characterAttack;
-	private String characterDefense;
-	private String characterExp;
+	private int characterLv;
+	private int characterMaxHP;
+	private int characterHP;
+	private int characterAttack;
+	private int characterDefense;
+	private int characterExp;
 	public Map<String,Object>session;
 	private String errorMessage;
 
+
 	public String execute(){
 		String result =SUCCESS;
+
+		int randomValue1 = (int)(Math.random() * 10) + 1;
+		int randomValue2 = (int)(Math.random() * 10) + 1;
+		int randomValue3 = (int)(Math.random() * 10) + 1;
 		if(!(loginUserId.equals(""))&&!(loginPassword.equals(""))&&!(userName.equals(""))&&!(characterName.equals(""))){
+
+
 			session.put("loginUserId", loginUserId);
 			session.put("loginPassword", loginPassword);
 			session.put("userName", userName);
 			session.put("characterName", characterName);
 			session.put("characterLv",characterLv);
-			session.put("characterHP", characterHP);
-			session.put("characterAttack", characterAttack);
-			session.put("characterDefense", characterDefense);
+			session.put("characterMaxHP", characterMaxHP+randomValue1);
+			session.put("characterHP",characterMaxHP+randomValue1);
+			session.put("characterAttack", characterAttack+randomValue2);
+			session.put("characterDefense", characterDefense+randomValue3);
 			session.put("characterExp",characterExp);
+
 		}else{
 			setErrorMessage("未入力の項目があります。");
 			result=ERROR;
@@ -39,45 +49,79 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 		return result;
 	}
 
-	public String getCharacterHP() {
-		return characterHP;
-	}
 
-	public void setCharacterHP(String characterHP) {
-		this.characterHP = characterHP;
-	}
 
-	public String getCharacterLv() {
+	public int getCharacterLv() {
 		return characterLv;
 	}
 
-	public void setCharacterLv(String characterLv) {
+
+
+	public void setCharacterLv(int characterLv) {
 		this.characterLv = characterLv;
 	}
 
-	public String getCharacterAttack() {
+
+
+	public int getCharacterMaxHP() {
+		return characterMaxHP;
+	}
+
+
+
+	public void setCharacterMaxHP(int characterMaxHP) {
+		this.characterMaxHP = characterMaxHP;
+	}
+
+
+
+	public int getCharacterHP() {
+		return characterHP;
+	}
+
+
+
+	public void setCharacterHP(int characterHP) {
+		this.characterHP = characterHP;
+	}
+
+
+
+	public int getCharacterAttack() {
 		return characterAttack;
 	}
 
-	public void setCharacterAttack(String characterAttack) {
+
+
+	public void setCharacterAttack(int characterAttack) {
 		this.characterAttack = characterAttack;
 	}
 
-	public String getCharacterDefense() {
+
+
+	public int getCharacterDefense() {
 		return characterDefense;
 	}
 
-	public void setCharacterDefense(String characterDefense) {
+
+
+	public void setCharacterDefense(int characterDefense) {
 		this.characterDefense = characterDefense;
 	}
 
-	public String getCharacterExp() {
+
+
+	public int getCharacterExp() {
 		return characterExp;
 	}
 
-	public void setCharacterExp(String characterExp) {
+
+
+	public void setCharacterExp(int characterExp) {
 		this.characterExp = characterExp;
 	}
+
+
 
 	public String getCharacterName() {
 		return characterName;

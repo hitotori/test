@@ -119,6 +119,24 @@ text-align:center;
 						</td>
 					</tr>
 					<tr>
+						<td class="tbl"><label>キャラクターHP</label></td>
+						<td class="tbl">「<s:property value="session.characterMaxHP"
+								escape="false" />」
+						</td>
+					</tr>
+					<tr>
+						<td class="tbl"><label>キャラクターATK</label></td>
+						<td class="tbl">「<s:property value="session.characterAttack"
+								escape="false" />」
+						</td>
+					</tr>
+					<tr>
+						<td class="tbl"><label>キャラクターDEF</label></td>
+						<td class="tbl">「<s:property value="session.characterDefense"
+								escape="false" />」
+						</td>
+					</tr>
+					<tr>
 						<td class="botan"><s:submit value="完了" /></td>
 					</tr>
 				</s:form>

@@ -1,74 +1,170 @@
 package testgame.action;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Random;
+import java.util.Map;
 
-import testgame.status.SampleBraverStatus;
-import testgame.status.SampleEnemyStatus;
+import org.apache.struts2.interceptor.SessionAware;
 
-public class BattleAction {
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		SampleBraverStatus b = new SampleBraverStatus();
-		SampleEnemyStatus e = new SampleEnemyStatus();
-		int d = new Random().nextInt(40) + 10;
-		// ランダムはnextInt(数字１)+数字２で数字２からスタートした数字１分の値に指定できる。
-		b.setName("Braver");
-		e.setEnemyName("Enemy");
+import com.opensymphony.xwork2.ActionSupport;
 
-		// System.out.println();の部分はjspにて似たように表示させる。
-		// 表示はlogの場所。logを箱のギリギリで新しいやつに更新するやり方は要検討。
+public class BattleAction extends ActionSupport implements SessionAware{
+	private Map<String, Object> session;
+	private String jaku;
+	private String kyou;
+	private String ecp;
 
-		System.out.println(e.getEnemyName() + "が現れた。");
-		while (e.getEnemyHP() <= 0 || b.getHP() <= 0) {
-			try {
-				for (int i = 0; i < 2; i++) {
-					BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-					int num = Integer.parseInt(br.readLine());
-					System.out.println(b.getName() + "の行動1:たたかう 2:まほう 3:にげる");
-					switch (num) {
-					case 1:
-						System.out.println(b.getName() + "の攻撃");
-						System.out.println(e.getEnemyName() + "に" + d + "のダメージを与えた");
-						e.setEnemyHP(e.getEnemyHP() - d);
 
-						if (e.getEnemyHP() <= 0) {
-							System.out.println(e.getEnemyName() + "は倒れた");
-							break;
+	public String execute() throws Exception {
+
+		String result=ERROR;
+		int characterHP= Integer.parseInt(String.valueOf(session.get("characterHP")));
+		int characterAttack=Integer.parseInt(String.valueOf(session.get("characterATK")));
+		int characterDefense=Integer.parseInt(String.valueOf(session.get("characterDEF")));
+		int enemyHP=Integer.parseInt(String.valueOf(session.get("enemyHP")));
+		int enemyAttack=Integer.parseInt(String.valueOf(session.get("enemyATK")));
+		int enemyDefense=Integer.parseInt(String.valueOf(session.get("enemyDEF")));
+		int randomValue1 = (int)(Math.random() * 10) + 1;
+		int randomValue2 = (int)(Math.random() * 20) + 6;
+		int randomValue3 = (int)(Math.random() * 10) + 1;
+		int randomValue4 = (int)(Math.random() * 20) + 6;
+		int enemyRandom = (int)(Math.random() * 10) +1;
+		String battleFlg=String.valueOf(session.get("battleFlg"));
+
+
+
+		if(battleFlg.equals("0")){
+			if(enemyHP >= 0 || characterHP >= 0) {
+				try {
+					if(jaku.equals("1")){
+						if((characterAttack-enemyDefense)<=0){
+							session.put("damage2", randomValue1);
+							session.put("enemyHP",enemyHP-randomValue1);
+						}else{
+						//charcterの攻撃
+						session.put("enemyHP",(enemyHP -((characterAttack-enemyDefense)+randomValue1)));
+						session.put("damage", ((characterAttack-enemyDefense)+randomValue1));
 						}
 
-					case 2:
-						System.out.println((b.getName() + "の魔法攻撃"));
-						System.out.println(e.getEnemyName() + "に" + d + "のダメージを与えた");
-						e.setEnemyHP(e.getEnemyHP() - d);
-						if (e.getEnemyHP() <= 0) {
-							System.out.println(e.getEnemyName() + "は倒れた");
-							break;
+						int enemyHPafter=Integer.parseInt(String.valueOf(session.get("enemyHP")));
+						if (enemyHPafter <= 0) {
+							//死亡判定
+							result="win";
+							return result;
 						}
-					case 3:
-						System.out.println(("にげる"));
-						System.out.println(b.getName() + "は逃げ出した");
-						break;
 					}
-					System.out.println(e.getEnemyName() + "の行動");
-					if (i == 1) {
-						System.out.println(e.getEnemyName() + "の攻撃");
 
-						System.out.println(b.getName() + "に" + d + "のダメージ");
-						b.setHP(b.getHP() - d);
-						if (b.getHP() <= 0) {
-							System.out.println(b.getName() + "は倒れてしまった");
-							break;
+
+						//別攻撃手段の場合
+					if(kyou.equals("2")){
+						if((characterAttack-enemyDefense)<=0){
+							session.put("damage2", randomValue2);
+							session.put("enemyHP",enemyHP-randomValue2);
+						}else{
+						session.put("enemyHP",(enemyHP -((characterAttack-enemyDefense)+randomValue2)));
+						session.put("damage", ((characterAttack-enemyDefense)+randomValue2));
 						}
-					} else {
-						System.out.println("何もしなかった");
+
+						int enemyHPafter=Integer.parseInt(String.valueOf(session.get("enemyHP")));
+						if (enemyHPafter <= 0) {
+							//死亡判定
+							result="win";
+							return result;
+						}
 					}
+					if(ecp.equals("3")){
+						//逃げる場合（確定成功)
+						result="back";
+						return result;
+					}
+
+
+					//enemyの行動
+
+					if(enemyRandom<=7){
+						if((enemyAttack-characterDefense)<=0){
+							session.put("damage2", randomValue3);
+							session.put("characterHP",characterHP-randomValue3);
+						}else{
+						//enemyの攻撃
+						session.put("characterHP",(characterHP -((enemyAttack-characterDefense)+randomValue3)));
+						session.put("damage2", ((characterAttack-enemyDefense)+randomValue3));
+						}
+
+						int characterHPafter=Integer.parseInt(String.valueOf(session.get("characterHP")));
+						if (characterHPafter <= 0) {
+							//死亡判定
+							result="lose";
+							return result;
+
+						}
+					}
+
+
+					if(enemyRandom>7){
+						if((enemyAttack-characterDefense)<=0){
+							session.put("damage2", randomValue4);
+							session.put("characterHP",characterHP-randomValue4);
+						}else{
+						//別攻撃手段の場合
+						session.put("characterHP",(characterHP -((enemyAttack-characterDefense)+randomValue4)));
+						session.put("damage2", ((characterAttack-enemyDefense)+randomValue4));
+						}
+
+						int characterHPafter=Integer.parseInt(String.valueOf(session.get("characterHP")));
+						if (characterHPafter <= 0) {
+							//死亡判定
+							result="lose";
+						}
+					}
+				} catch (Exception e) {
+				e.printStackTrace();
 				}
-			} catch (Exception e1) {
-				e1.printStackTrace();
+					session.put("battleFlg", 1);
+					result=SUCCESS;
 			}
+		}else if(battleFlg.equals("1")){
+			session.put("battleFlg", 0);
+			result=SUCCESS;
 		}
+		return result;
 	}
+
+
+	public String getJaku() {
+		return jaku;
+	}
+
+
+	public void setJaku(String jaku) {
+		this.jaku = jaku;
+	}
+
+
+	public String getKyou() {
+		return kyou;
+	}
+
+
+	public void setKyou(String kyou) {
+		this.kyou = kyou;
+	}
+
+
+	public String getEcp() {
+		return ecp;
+	}
+
+
+	public void setEcp(String ecp) {
+		this.ecp = ecp;
+	}
+
+
+	public Map<String, Object> getSession() {
+		return session;
+	}
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+	}
+
 
 }

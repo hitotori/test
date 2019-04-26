@@ -78,7 +78,7 @@ border-collapse:collapse;
 width:100%;
 /* border:white 1px solid; */
 }
-.log {
+.enemyName {
 float:left;
 	width: 30%;
 	height: 30px;
@@ -126,14 +126,40 @@ img{
 	width: 200px;
 	margin: 0 auto;
 }
-
+.log{
+margin:0 auto;
+width:60%;
+height:150px;
+}
 
 #footer{
 clear:both;
 }
+.logbox{
+border:white 2px solid;
+margin:0 auto;
+width:50%;
+}
+.sankaku{
+text-align:right;
+}
+.sankaku:hover{
+font-size:18px;
+}
+.submit_btn{
+background-color:black;
+color:white;
+width:100%;
+height:35px;
+border:black solid 1px;
+border-bottom:2px white solid;
+
+}
 </style>
 </head>
 <body>
+<script type="text/javascript" src= "./js/battle.js"></script>
+
 	<div id="header"></div>
 	<div id="main">
 		<div class="status">
@@ -213,16 +239,54 @@ clear:both;
 
 <!-- 		この下の部分を行動選択からログに切り替えたい。それ用のページを作るべき？ -->
 <!-- 		その場合はログ用のページからクリック処理等でこのページに戻ったうえでデータの更新をさせなきゃいけない -->
+
+
+		<s:if test="session.battleFlg==0">
 		<div class="command">
 		<table class="commandbox">
-		<tr class="command1"><td class="command2"><a href='<s:url action="BattleAction"/>'>戦う</a></td></tr>
-		<tr class="command1"><td class="command2">command</td></tr>
-		<tr class="command1"><td class="command2">またはログ</td></tr>
-		<tr class="command1"><td class="command2">log</td></tr>
+		<s:form id="form" name="form" theme="simple">
+		<tr class="command1"><td class="command2"><s:submit value="戦う" onclick="goBattle1Action()" class="submit_btn"/></td></tr>
+<s:hidden id="jaku" name="jaku" value=""/>
+
+
+		<tr class="command1"><td class="command2"><s:submit value="強攻撃" onclick="goBattle2Action()" class="submit_btn"/></td></tr>
+<s:hidden id="kyou" name="kyou" value=""/>
+
+
+		<tr class="command1"><td class="command2"><s:submit value="逃げる" onclick="goBattle3Action()" class="submit_btn"/></td></tr>
+<s:hidden id="ecp" name="ecp" value=""/>
+		</s:form>
+
+
+		<tr class="command1"><td class="command2"><s:submit value="ステータス確認" onclick="goBattle4Action()" class="submit_btn"/></td></tr>
+
 		</table>
 		</div>
-		<div class="log"><s:property value="session.enemyName"/></div>
-	</div>
+		<div class="enemyName"><s:property value="session.enemyName"/></div>
+		</s:if>
+
+
+
+		<s:elseif test="session.battleFlg==1">
+		<div class="logbox">
+		<a href='<s:url action="Battle1Action" />' class="log">
+
+		<s:property value="session.characterName" />は<br>
+		<s:property value="session.enemyName" />に<br>
+		<s:property value="session.damage" />ダメージを与えた<br>
+
+		<s:property value="session.enemyName" />は<br>
+		<s:property value="session.characterName" />に<br>
+		<s:property value="session.damage2" />ダメージを与えた<br>
+		 <span class="sankaku">                　　　　　　　　　　　▽</span>
+		</a>
+		</div>
+		</s:elseif>
+
+		</div>
+
+
+
 	<div id="footer"></div>
 </body>
 </html>

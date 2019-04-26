@@ -39,8 +39,6 @@ public class GoBattle1Action extends ActionSupport implements SessionAware{
 		session.put("enemyDEF",dto.getEnemyDEF());
 		session.put("enemyEXP",dto.getEnemyEXP());
 
-		System.out.println(dto.getEnemyName());
-
 		String loginId;
 		loginId = session.get("loginId").toString();
 
@@ -52,8 +50,8 @@ public class GoBattle1Action extends ActionSupport implements SessionAware{
 		session.put("characterDEF",dto.getCharacterDEF());
 		session.put("characterEXP",dto.getCharacterEXP());
 
-		System.out.println("=================================");
-		System.out.println(dto.getCharacterName());
+		session.put("battleFlg", 0);
+
 
 			return SUCCESS;
 		}

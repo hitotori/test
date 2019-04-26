@@ -121,7 +121,7 @@ margin-right:49%;
 					<td><input type="text" class="txt" name="characterName" value="" /></td>
 				</tr>
 
-				<s:submit class="botan" value="登録" />
+
 				<tr>
 					<td><label> </label></td>
 <!-- 					キャラクターLV -->
@@ -129,24 +129,36 @@ margin-right:49%;
 				</tr>
 				<tr>
 					<td><label> </label></td>
-<!-- 					キャラクターHP -->
-					<td><input type="hidden" name="characterHP" value="25" /></td>
+					<td><input type="hidden" name="characterMaxHP" value="20" /></td>
 				</tr>
+
+
+
+<!-- 				<tr> -->
+<!-- 					<td><label> </label></td> -->
+<!-- <!-- 					キャラクターHP --> -->
+<!-- 					<td><input type="hidden" name="characterHP" value="20" /></td> -->
+<!-- 				</tr> -->
+
+
+
 				<tr>
 					<td><label> </label></td>
 <!-- 					キャラクターAttack -->
-					<td><input type="hidden" name="characterAttack" value="10" /></td>
+					<td><input type="hidden" name="characterAttack" value="5" /></td>
 				</tr>
 				<tr>
 					<td><label> </label></td>
 <!-- 					キャラクターDefense -->
-					<td><input type="hidden" name="characterDefense" value="8" /></td>
+					<td><input type="hidden" name="characterDefense" value="3" /></td>
 				</tr>
 				<tr>
 					<td><label> </label></td>
 <!-- 					キャラクターEXP -->
 					<td><input type="hidden" name="characterExp" value="0" /></td>
 				</tr>
+
+				<s:submit class="botan" value="登録" />
 			</s:form>
 		</table>
 

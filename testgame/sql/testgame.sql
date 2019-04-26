@@ -15,6 +15,7 @@ user_name varchar(50),
 admin_flg varchar(1),
 character_name varchar(30),
 character_level int,
+character_maxhp int,
 character_hp int,
 character_attack int,
 character_defense int,
@@ -51,7 +52,7 @@ update_date datetime
 
 
 
-INSERT INTO user_transaction(login_id,login_pass,user_name,character_name,character_level,character_hp,character_attack,character_defense,character_experiencepoint)VALUES("1","q","debagger","デバッガー",5,100,50,50,0);
+INSERT INTO user_transaction(login_id,login_pass,user_name,character_name,character_level,character_maxhp,character_hp,character_attack,character_defense,character_experiencepoint)VALUES("1","q","debagger","デバッガー",5,100,100,50,50,0);
 INSERT INTO user_transaction(login_id,login_pass,user_name,admin_flg)VALUES("a","a","manager","〇");
 INSERT INTO weapon_transaction(item_name,item_price,item_attack,item_defense,item_text)VALUES("とがった棒切れ",50,5,1,"少しとがった棒切れ相手に突き刺すと地味に痛い。");
 INSERT INTO weapon_transaction(item_name,item_price,item_attack,item_defense,item_text)VALUES("鉄の剣",200,20,5,"立派な剣、銃刀法に違反しないよう刃はつぶしてある。");
@@ -69,7 +70,7 @@ INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy_defense,ene
 INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy_defense,enemy_experiencepoint)VALUES("森の賢人",75,25,30,20);
 INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy_defense,enemy_experiencepoint)VALUES("ヌフイム改",100,30,30,40);
 INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy_defense,enemy_experiencepoint)VALUES("トライホーンペガサス",135,40,45,80);
-INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy_defense,enemy_experiencepoint)VALUES("水陸量尾用マッチョマン",180,55,60,100);
+INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy_defense,enemy_experiencepoint)VALUES("水陸両用マッチョマン",180,55,60,100);
 INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy_defense,enemy_experiencepoint)VALUES("超合金ゴーレムクロビカリ",250,60,80,150);
 INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy_defense,enemy_experiencepoint)VALUES("深淵を狩る者",330,80,80,300);
 INSERT INTO enemy_transaction(enemy_name,enemy_hp,enemy_attack,enemy_defense,enemy_experiencepoint)VALUES("前勇者ああああ",450,95,100,600);

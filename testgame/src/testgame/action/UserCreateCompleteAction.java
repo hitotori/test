@@ -16,6 +16,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 	private String userName;
 	private String characterName;
 	private String characterLv;
+	private String characterMaxHP;
 	private String characterHP;
 	private String characterAttack;
 	private String characterDefense;
@@ -29,6 +30,7 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 						  session.get("userName").toString(),
 						  session.get("characterName").toString(),
 						  session.get("characterLv").toString(),
+						  session.get("characterMaxHP").toString(),
 						  session.get("characterHP").toString(),
 						  session.get("characterAttack").toString(),
 						  session.get("characterDefense").toString(),
@@ -36,6 +38,14 @@ public class UserCreateCompleteAction extends ActionSupport implements SessionAw
 		String result = SUCCESS;
 
 		return result;
+	}
+
+	public String getCharacterMaxHP() {
+		return characterMaxHP;
+	}
+
+	public void setCharacterMaxHP(String characterMaxHP) {
+		this.characterMaxHP = characterMaxHP;
 	}
 
 	public String getCharacterHP() {

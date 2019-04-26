@@ -17,8 +17,9 @@
 			<result name="success">home.jsp</result>
 		</action>
 
-		<action name="GoTitleAction" class="testgame.action.GoTitleAction" method="execute">
-		   <result name="success">title.jsp</result>
+		<action name="GoTitleAction" class="testgame.action.GoTitleAction"
+			method="execute">
+			<result name="success">title.jsp</result>
 		</action>
 
 		<action name="LoginAction" class="testgame.action.LoginAction"
@@ -42,12 +43,149 @@
 			<result name="success">userCreateComplete.jsp</result>
 		</action>
 
-		<action name="GoBattleAction" class="testgame.action.GoBattleAction" method="execute">
-		   <result name="success">battle.jsp</result>
+		<action name="GoBattleAction" class="testgame.action.GoBattleAction"
+			method="execute">
+			<result name="success">battle.jsp</result>
 		</action>
 
-		<action name="GoBattle1Action" class="testgame.action.GoBattle1Action" method="execute">
-		   <result name="success">battle1.jsp</result>
+		<action name="GoBattle1Action" class="testgame.action.GoBattle1Action"
+			method="execute">
+			<result name="success">battle1.jsp</result>
+		</action>
+
+		<action name="GoBattle2Action" class="testgame.action.GoBattle2Action"
+			method="execute">
+			<result name="success">battle2.jsp</result>
+		</action>
+
+		<action name="GoBattle3Action" class="testgame.action.GoBattle3Action"
+			method="execute">
+			<result name="success">battle3.jsp</result>
+		</action>
+
+		<action name="GoBattle4Action" class="testgame.action.GoBattle4Action"
+			method="execute">
+			<result name="success">battle4.jsp</result>
+		</action>
+
+		<action name="GoBattle5Action" class="testgame.action.GoBattle5Action"
+			method="execute">
+			<result name="success">battle5.jsp</result>
+		</action>
+
+		<action name="GoBattle6Action" class="testgame.action.GoBattle6Action"
+			method="execute">
+			<result name="success">battle6.jsp</result>
+		</action>
+
+		<action name="GoBattle7Action" class="testgame.action.GoBattle7Action"
+			method="execute">
+			<result name="success">battle7.jsp</result>
+		</action>
+
+		<action name="GoBattle8Action" class="testgame.action.GoBattle8Action"
+			method="execute">
+			<result name="success">battle8.jsp</result>
+		</action>
+
+		<action name="GoBattle9Action" class="testgame.action.GoBattle9Action"
+			method="execute">
+			<result name="success">battle9.jsp</result>
+		</action>
+
+		<action name="GoBattle10Action" class="testgame.action.GoBattle10Action"
+			method="execute">
+			<result name="success">battle10.jsp</result>
+		</action>
+
+		<action name="BattleAction" class="testgame.action.BattleAction"
+			method="execute">
+			<result name="success">battle1.jsp</result>
+			<result name="win">title.jsp</result>
+			<result name="lose">home.jsp</result>
+			<result name="back">battle.jsp</result>
+			<result name="error">battle.jsp</result>
+		</action>
+
+		<action name="Battle2Action" class="testgame.action.Battle2Action"
+			method="execute">
+			<result name="success">battle2.jsp</result>
+			<result name="win">title.jsp</result>
+			<result name="lose">home.jsp</result>
+			<result name="back">battle.jsp</result>
+			<result name="error">battle.jsp</result>
+		</action>
+
+		<action name="Battle3Action" class="testgame.action.Battle3Action"
+			method="execute">
+			<result name="success">battle3.jsp</result>
+			<result name="win">title.jsp</result>
+			<result name="lose">home.jsp</result>
+			<result name="back">battle.jsp</result>
+			<result name="error">battle.jsp</result>
+		</action>
+
+		<action name="Battle4Action" class="testgame.action.Battle4Action"
+			method="execute">
+			<result name="success">battle4.jsp</result>
+			<result name="win">title.jsp</result>
+			<result name="lose">home.jsp</result>
+			<result name="back">battle.jsp</result>
+			<result name="error">battle.jsp</result>
+		</action>
+
+		<action name="Battle5Action" class="testgame.action.Battle5Action"
+			method="execute">
+			<result name="success">battle5.jsp</result>
+			<result name="win">title.jsp</result>
+			<result name="lose">home.jsp</result>
+			<result name="back">battle.jsp</result>
+			<result name="error">battle.jsp</result>
+		</action>
+
+		<action name="Battle6Action" class="testgame.action.Battle6Action"
+			method="execute">
+			<result name="success">battle6.jsp</result>
+			<result name="win">title.jsp</result>
+			<result name="lose">home.jsp</result>
+			<result name="back">battle.jsp</result>
+			<result name="error">battle.jsp</result>
+		</action>
+
+		<action name="Battle7Action" class="testgame.action.Battle7Action"
+			method="execute">
+			<result name="success">battle7.jsp</result>
+			<result name="win">title.jsp</result>
+			<result name="lose">home.jsp</result>
+			<result name="back">battle.jsp</result>
+			<result name="error">battle.jsp</result>
+		</action>
+
+		<action name="Battle8Action" class="testgame.action.Battle8Action"
+			method="execute">
+			<result name="success">battle8.jsp</result>
+			<result name="win">title.jsp</result>
+			<result name="lose">home.jsp</result>
+			<result name="back">battle.jsp</result>
+			<result name="error">battle.jsp</result>
+		</action>
+
+		<action name="Battle9Action" class="testgame.action.Battle9Action"
+			method="execute">
+			<result name="success">battle9.jsp</result>
+			<result name="win">title.jsp</result>
+			<result name="lose">home.jsp</result>
+			<result name="back">battle.jsp</result>
+			<result name="error">battle.jsp</result>
+		</action>
+
+		<action name="Battle10Action" class="testgame.action.Battle10Action"
+			method="execute">
+			<result name="success">battle10.jsp</result>
+			<result name="win">title.jsp</result>
+			<result name="lose">home.jsp</result>
+			<result name="back">battle.jsp</result>
+			<result name="error">battle.jsp</result>
 		</action>
 	</package>
 </struts>
